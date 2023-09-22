@@ -481,6 +481,50 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   };
 }
 
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 50;
+      }>;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUsersPermissionsPermission
   extends Schema.CollectionType {
   collectionName: 'up_permissions';
@@ -632,43 +676,174 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
   info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
-    description: '';
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'category';
   };
   options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
+    draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<{
-        min: 1;
-        max: 50;
-      }>;
-    code: Attribute.String & Attribute.Unique;
+    title: Attribute.String & Attribute.Required;
+    products: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::product.product'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
+      'api::category.category',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: 'products';
+  info: {
+    singularName: 'product';
+    pluralName: 'products';
+    displayName: 'product';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
+    material: Attribute.String & Attribute.Required;
+    price: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 0;
+      }>;
+    colorHex: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'#FFFFFF'>;
+    image: Attribute.Media & Attribute.Required;
+    categories: Attribute.Relation<
+      'api::product.product',
+      'manyToMany',
+      'api::category.category'
+    >;
+    sub_categories: Attribute.Relation<
+      'api::product.product',
+      'manyToMany',
+      'api::sub-category.sub-category'
+    >;
+    relation_products: Attribute.Relation<
+      'api::product.product',
+      'oneToMany',
+      'api::product.product'
+    >;
+    outfits: Attribute.Relation<
+      'api::product.product',
+      'oneToMany',
+      'api::product.product'
+    >;
+    product_variation: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'api::product-variation.product-variation'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductVariationProductVariation
+  extends Schema.CollectionType {
+  collectionName: 'product_variations';
+  info: {
+    singularName: 'product-variation';
+    pluralName: 'product-variations';
+    displayName: 'productVariation';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    stock_quantity: Attribute.Component<'stock.stock-components'> &
+      Attribute.Required;
+    product: Attribute.Relation<
+      'api::product-variation.product-variation',
+      'oneToOne',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product-variation.product-variation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product-variation.product-variation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSubCategorySubCategory extends Schema.CollectionType {
+  collectionName: 'sub_categories';
+  info: {
+    singularName: 'sub-category';
+    pluralName: 'sub-categories';
+    displayName: 'subCategory';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    products: Attribute.Relation<
+      'api::sub-category.sub-category',
+      'manyToMany',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sub-category.sub-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sub-category.sub-category',
       'oneToOne',
       'admin::user'
     > &
@@ -688,10 +863,14 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::i18n.locale': PluginI18NLocale;
+      'api::category.category': ApiCategoryCategory;
+      'api::product.product': ApiProductProduct;
+      'api::product-variation.product-variation': ApiProductVariationProductVariation;
+      'api::sub-category.sub-category': ApiSubCategorySubCategory;
     }
   }
 }

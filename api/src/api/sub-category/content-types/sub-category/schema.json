@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_categories",
+  "info": {
+    "singularName": "sub-category",
+    "pluralName": "sub-categories",
+    "displayName": "subCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "sub_categories"
+    }
+  }
+}
