@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+cd client
+ 
+echo '⏳ Styling, testing and building your project before committing ⏳'
+
+# Check Prettier standards
+pnpm run check-format ||
+(
+    echo '❌
+            Prettier Check Failed. ❌';
+    false;
+)
+
+# Check ESLint Standards
+pnpm run check-lint ||
+(
+        echo '❌
+                ESLint Check Failed. ❌'
+        false; 
+)
+
+# If everything passes... Now we can commit
+echo '✅✅✅✅ Done.
+You can committing this now. ✅✅✅✅'

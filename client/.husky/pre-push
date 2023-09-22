@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+cd client
+
+# If everything passes... Now we can commit
+echo '⏳ Trying to build now.'
+
+pnpm run build ||
+(
+    echo '❌ 
+            Next build failed: View the errors above to see why. ❌'
+    false;
+)
+
+# If everything passes... Now we can commit
+echo '✅✅✅✅ Done.
+You can push this now. ✅✅✅✅'
