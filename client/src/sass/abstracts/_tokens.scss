@@ -1,0 +1,15 @@
+@use 'colors' as *;
+@use 'typography' as *;
+
+$color-text-default: $black;
+$color-text-primary: $white;
+
+$color-background-default: $white;
+
+$body-font-family: $font-family-base;
+$body-font-size: $font-size-400;
+$body-line-height: 1.5;
+$body-font-weight: $font-weight-default;
+$body-text-color: $color-text-default;
+$body-background-color: $white;
+$body-background-secondary-color: $black;

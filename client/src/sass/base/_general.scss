@@ -1,0 +1,52 @@
+@use '../abstracts/' as *;
+
+body {
+  font-family: $body-font-family;
+  font-weight: $body-font-weight;
+  font-size: $body-font-size;
+  color: $body-text-color;
+  background-color: $body-background-color;
+  line-height: $body-line-height;
+}
+
+a {
+  display: inline-block;
+  position: relative;
+  color: $color-text-default;
+  &:not(:has(img)):is(:hover) {
+    color: $color-text-default;
+    &::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transform-origin: bottom left;
+    transition: transform 0.5s ease-out;
+  }
+}
+
+.container {
+  width: 70%;
+  display: flex;
+  margin: 0 auto;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0 0 1px rgb(0, 0, 0);
+}

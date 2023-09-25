@@ -1,0 +1,24 @@
+$-ff-sans: system-ui, sans-serif;
+$-ff-serif: serif;
+
+$font-family-base: $-ff-sans;
+$font-family-accent: $-ff-sans;
+
+$font-size-200: 0.875rem;
+$font-size-300: 0.925rem;
+$font-size-400: 1rem;
+$font-size-500: 1.125rem;
+$font-size-600: 1.3125rem;
+$font-size-700: 1.75rem;
+$font-size-800: 3rem;
+$font-size-900: 3.75rem;
+
+$-fw-300: 300;
+$-fw-400: 400;
+$-fw-500: 500;
+$-fw-700: 700;
+
+$font-weight-light: $-fw-300;
+$font-weight-default: $-fw-400;
+$font-weight-semi-bold: $-fw-500;
+$font-weight-bold: $-fw-700;
