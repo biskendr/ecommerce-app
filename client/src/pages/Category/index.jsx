@@ -1,12 +1,11 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import UseFetch from '@/hooks/useFetch.js'
 import useFilters from '@/hooks/useFilters.js'
 import Filter from '~/Filter'
 import List from '~/List'
+import Error from '~/Error'
 import Loading from '~/Loading'
-import NotFound from '~/NotFound'
 
 export default function Category() {
   const { categoryID } = useParams()
@@ -25,8 +24,10 @@ export default function Category() {
   )
   useEffect(() => {
     resetFilters()
-  }, [categoryID])
-  if (error) return <NotFound />
+  }, [categoryID, resetFilters])
+
+  if (error) return <Error />
+
   return (
     <div className="category">
       {data && (

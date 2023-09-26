@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 const initialState = {
   category: [],
@@ -7,28 +7,27 @@ const initialState = {
 }
 
 function useFilters() {
-  const [inputs, setInputs] = useState(initialState)
+  const [filters, setFilters] = useState(initialState)
 
   const handleChange = (event) => {
     const { name, value, checked } = event.target
-    setInputs((prevInputs) => {
+
+    setFilters((prevFilters) => {
       if (name === 'category') {
-        const updatedCategory = checked
-          ? [...prevInputs.category, value]
-          : prevInputs.category.filter((item) => item !== value)
-        return { ...prevInputs, category: updatedCategory }
+        return {
+          ...prevFilters,
+          category: checked
+            ? [...prevFilters.category, value]
+            : prevFilters.category.filter((item) => item !== value),
+        }
       }
-      if (name === 'price') {
-        return { ...prevInputs, [name]: value }
-      }
-      return { ...prevInputs, [name]: value }
+      return { ...prevFilters, [name]: value }
     })
   }
 
-  const resetFilters = () => {
-    setInputs(initialState)
-  }
-  return [inputs, handleChange, resetFilters]
+  const resetFilters = useCallback(() => setFilters(initialState), [])
+
+  return [filters, handleChange, resetFilters]
 }
 
 export default useFilters

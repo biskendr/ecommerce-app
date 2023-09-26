@@ -1,14 +1,9 @@
 import { Suspense } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import HomeLayout from '@/layouts/Home'
+import NotFound from '~/NotFound'
 import Loading from '~/Loading'
-import Home from '@/pages/Home'
-import Category from '@/pages/Category'
-import Product from '@/pages/Product'
-
-// const Home = lazy(() => import('@/pages/Home'))
-// const Category = lazy(() => import('@/pages/Category'))
-// const Product = lazy(() => import('@/pages/Product'))
+import { Home, Category, Product } from './LazyComponent'
 
 const routes = createBrowserRouter([
   {
@@ -30,7 +25,6 @@ const routes = createBrowserRouter([
             <Category />
           </Suspense>
         ),
-        errorElement: <h1>Error</h1>,
       },
       {
         path: '/products/:productID',
@@ -40,7 +34,15 @@ const routes = createBrowserRouter([
           </Suspense>
         ),
       },
+      {
+        path: '*',
+        element: <NotFound />,
+      },
     ],
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
 ])
 

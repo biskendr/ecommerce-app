@@ -19,21 +19,23 @@ export default function Filter(props) {
           <div className="filter-items">
             <div className="filter-item">
               <h4>Categories</h4>
-              {data.map((item) => (
-                <div key={item.id} className="filter-item-category">
-                  <input
-                    type="checkbox"
-                    name="category"
-                    checked={category.includes(item.id.toString())}
-                    id={item.id}
-                    value={item.id}
-                    onChange={setFilters}
-                  />
-                  <label htmlFor="category">
-                    {item.attributes.title !== '' && item.attributes.title}
-                  </label>
-                </div>
-              ))}
+              {data.map((item) => {
+                const { id, attributes } = item
+                const { title } = attributes
+                return (
+                  <div key={id} className="filter-item-category">
+                    <input
+                      type="checkbox"
+                      name="category"
+                      checked={category.includes(id.toString())}
+                      id={id}
+                      value={id}
+                      onChange={setFilters}
+                    />
+                    <label htmlFor="category">{title}</label>
+                  </div>
+                )
+              })}
             </div>
             <div className="filter-item">
               <h4>Price</h4>
