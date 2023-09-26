@@ -1,0 +1,11 @@
+@use '../abstracts/' as *;
+
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  p {
+    font-size: $size-8;
+  }
+}

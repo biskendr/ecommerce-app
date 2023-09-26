@@ -1,0 +1,49 @@
+@use '../abstracts/' as *;
+
+.stripe {
+  overflow: hidden;
+  background: $body-background-secondary-color;
+  white-space: nowrap;
+  &-mid {
+    background: $body-background-color;
+    height: $size-15;
+  }
+  &-left-to-right,
+  &-right-to-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: $size-6 0;
+    word-spacing: $size-4;
+    word-break: break-all;
+    p {
+      padding: 0 $size-11;
+      font-size: $font-size-900;
+      color: $color-text-primary;
+      font-weight: $font-weight-light;
+    }
+  }
+  &-left-to-right {
+    animation: 50s LeftToRight infinite linear;
+  }
+  &-right-to-left {
+    animation: 50s RightToLeft infinite linear;
+  }
+
+  @keyframes RightToLeft {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes LeftToRight {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+}

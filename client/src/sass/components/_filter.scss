@@ -1,0 +1,88 @@
+@use '../abstracts/' as *;
+
+.filter {
+  @media (max-width: map-get($breakpoints, large)) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  font-size: $size-5;
+  margin: $size-4;
+  h3 {
+    font-size: $size-7;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+  }
+  h4 {
+    margin-bottom: $size-2;
+    font-size: $size-6;
+    font-weight: 300;
+    text-decoration: underline;
+  }
+  input {
+    accent-color: black;
+    color: black;
+  }
+  button {
+    background: transparent;
+    border: transparent;
+    &:hover {
+      background: black;
+      color: white;
+      width: $size-7;
+      transition: 1s all ease;
+    }
+    &:active {
+      border: 1px solid black;
+    }
+  }
+  &-items {
+    @media (max-width: map-get($breakpoints, large)) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .filter-item {
+      @media (max-width: map-get($breakpoints, large)) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        h4 {
+          margin-right: 2rem;
+        }
+      }
+      @media (max-width: map-get($breakpoints, small)) {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+  }
+  &-item {
+    margin-bottom: $size-4;
+    label,
+    &-sort,
+    &-category,
+    &-price {
+      input {
+        margin: 0 $size-2;
+      }
+    }
+    &-category {
+      &-label {
+        font-weight: 400;
+        padding-left: $size-2;
+      }
+    }
+    &-price {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

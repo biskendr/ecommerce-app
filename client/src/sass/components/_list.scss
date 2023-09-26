@@ -1,0 +1,36 @@
+@use '../abstracts/' as *;
+
+.list {
+  width: 100%;
+  padding: 0 2em;
+  &-items {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-content: space-between;
+    grid-gap: 2.5em;
+    &-wrap {
+      @media (max-width: map-get($breakpoints, large)) {
+        width: 250px;
+      }
+      width: 300px;
+      height: auto;
+      margin: 0 auto;
+      opacity: 1;
+      transition: 0.5s ease;
+      h2 {
+        font-size: $size-6;
+      }
+      h3 {
+        font-size: $size-5;
+      }
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+  &-no-match {
+    font-size: $size-5;
+    padding: 2rem;
+  }
+}
