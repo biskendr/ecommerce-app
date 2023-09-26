@@ -693,6 +693,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'manyToMany',
       'api::product.product'
     >;
+    sub_categories: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::sub-category.sub-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -822,6 +827,7 @@ export interface ApiSubCategorySubCategory extends Schema.CollectionType {
     singularName: 'sub-category';
     pluralName: 'sub-categories';
     displayName: 'subCategory';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -832,6 +838,11 @@ export interface ApiSubCategorySubCategory extends Schema.CollectionType {
       'api::sub-category.sub-category',
       'manyToMany',
       'api::product.product'
+    >;
+    categories: Attribute.Relation<
+      'api::sub-category.sub-category',
+      'manyToMany',
+      'api::category.category'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
