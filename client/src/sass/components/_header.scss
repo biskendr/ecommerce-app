@@ -6,7 +6,7 @@
   align-items: center;
   padding: $size-8 0;
   @media (max-width: map-get($breakpoints, medium)) {
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
   &-navbar {
     &-menu {
@@ -17,6 +17,26 @@
   }
   &-logo {
     font-size: $size-7;
+    &-small {
+      display: none;
+      @media (max-width: map-get($breakpoints, small)) {
+        display: block;
+        .material-symbols-sharp {
+          display: flex;
+          font-size: $size-9;
+          font-variation-settings:
+            'FILL' 1,
+            'wght' 100;
+        }
+      }
+    }
+    &-large {
+      visibility: visible;
+      @media (max-width: map-get($breakpoints, small)) {
+        visibility: hidden;
+        display: none;
+      }
+    }
   }
   &-actions-menu {
     display: flex;

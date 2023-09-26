@@ -35,7 +35,12 @@ export default function Header() {
         </ul>
       </nav>
       <h1 className="header-logo">
-        <Link to="/">Clothes</Link>
+        <Link to="/" className="header-logo-small">
+          <span className="material-symbols-sharp">copyright</span>
+        </Link>
+        <Link to="/" className="header-logo-large">
+          Clothes
+        </Link>
       </h1>
       <div className="header-actions">
         <ul className="header-actions-menu">
