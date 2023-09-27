@@ -1,4 +1,4 @@
-import useFetch from '@/hooks/useFetch.js'
+import useFetch from '@/hooks/useFetch'
 import List from '~/List'
 import Stripe from '~/Stripe'
 import Error from '~/Error'

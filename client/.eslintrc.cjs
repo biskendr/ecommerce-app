@@ -21,7 +21,7 @@ module.exports = {
         extensions: ['.js', '.jsx'],
       },
       alias: {
-        extensions: ['.jx', '.jsx'],
+        extensions: ['.js', '.jsx'],
         map: [
           ['~', path.resolve(__dirname, './src/components')],
           ['@', path.resolve(__dirname, './src')],

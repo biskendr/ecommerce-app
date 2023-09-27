@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import ApiInstance from '@/services/ApiInstance.js'
+import ApiInstance from '@/services/ApiInstance'
 
 const useFetch = (url) => {
   const [data, setData] = useState(null)
