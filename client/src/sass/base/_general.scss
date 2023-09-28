@@ -13,7 +13,7 @@ a {
   display: inline-block;
   position: relative;
   color: $color-text-default;
-  &:not(:has(img)):is(:hover) {
+  &:not(:has(img, span)):is(:hover) {
     color: $color-text-default;
     &::after {
       transform: scaleX(1);

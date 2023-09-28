@@ -1,0 +1,66 @@
+@use '../../abstracts/' as *;
+
+.product-galery {
+  gap: 4rem;
+
+  display: flex;
+  flex-direction: row;
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    > img {
+      max-width: 18vmin;
+      width: auto;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+  > img {
+    max-width: 30vi;
+    object-fit: cover;
+  }
+  @media (max-width: map-get($breakpoints, xlarge)) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &-wrapper {
+      width: 80vw;
+      display: flex;
+      flex-direction: row;
+      order: 1;
+    }
+    img {
+      max-width: 12vi;
+      object-fit: cover;
+    }
+    > img {
+      max-width: 35vi;
+    }
+  }
+  @media (max-width: map-get($breakpoints, large)) {
+    img {
+      max-width: 14vi;
+    }
+    > img {
+      max-width: 40vi;
+    }
+  }
+  @media (max-width: map-get($breakpoints, medium)) {
+    img {
+      max-width: 18vi;
+    }
+    > img {
+      max-width: 45vi;
+    }
+  }
+  @media (max-width: map-get($breakpoints, medium)) {
+    img {
+      max-width: 20vi;
+    }
+    > img {
+      max-width: 50vi;
+    }
+  }
+}

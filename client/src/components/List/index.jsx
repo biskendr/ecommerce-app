@@ -17,7 +17,7 @@ export default function List({ data }) {
   return (
     <div className="list">
       <div className="list-items">
-        {data && data.length > 1 ? (
+        {data && data.length > 0 ? (
           data.map((item) => <ProductItem key={item.id} item={item} />)
         ) : (
           <div className="list-no-match">

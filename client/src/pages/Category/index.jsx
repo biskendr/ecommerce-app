@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import UseFetch from '@/hooks/useFetch'
+import useFetch from '@/hooks/useFetch'
 import useFilters from '@/hooks/useFilters'
 import Filter from '~/Filter'
 import List from '~/List'
@@ -12,7 +12,7 @@ export default function Category() {
   const [filters, setFilters, resetFilters] = useFilters()
   const { category, sort, price } = filters
 
-  const { data, loading, error } = UseFetch(
+  const { data, loading, error } = useFetch(
     `/categories/${categoryID}?fields=title&populate[sub_categories][fields]=title&populate[products][populate]=title,image${category
       .map(
         (item) =>

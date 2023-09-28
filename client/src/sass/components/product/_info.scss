@@ -1,0 +1,20 @@
+.product {
+  select {
+    padding: 0.5em;
+    font-size: 1.25em;
+  }
+  .size-option {
+    &[disabled] {
+      background-color: #dedede;
+    }
+  }
+  .product-info-colors-dot {
+    margin-right: 1rem;
+    height: 25px;
+    width: 25px;
+    border: 1px solid #bbb;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }
+}
