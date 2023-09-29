@@ -1,8 +1,13 @@
+import { dispatchAddItemCart } from '@/utils/cartUtils'
+import {
+  dispatchAddItemWishlist,
+  dispatchRemoveItemWishlist,
+} from '@/utils/wishlistUtils'
 import { useState } from 'react'
 
-export default function ProductInfoBasket() {
-  const [quantity, setQuantity] = useState(0)
-  const [heart, setHeart] = useState(false)
+export default function ProductInfoBasket({ data }) {
+  const [quantity, setQuantity] = useState(1)
+  const { selectedSize, isFavorite, id, title, image } = data
 
   return (
     <div className="product-basket">
@@ -17,21 +22,37 @@ export default function ProductInfoBasket() {
       <button
         type="button"
         className="product-basket-counter"
-        disabled={quantity < 1}
         onClick={() => setQuantity((prev) => prev + 1)}
       >
         +
       </button>
-      <button type="button" className="product-basket-add">
+      <button
+        type="button"
+        className="product-basket-add"
+        onClick={() => {
+          if (selectedSize !== '')
+            dispatchAddItemCart({
+              id,
+              title,
+              image,
+              quantity,
+              size: selectedSize,
+            })
+          // eslint-disable-next-line no-alert
+          else alert('Please select a size')
+        }}
+      >
         ADD TO CART
       </button>
-
       <button
         type="button"
         className={`material-symbols-sharp basket-wishlist${
-          heart ? '-fill' : ''
+          isFavorite ? '' : '-fill'
         }`}
-        onClick={() => setHeart(!heart)}
+        onClick={() => {
+          if (!isFavorite) dispatchAddItemWishlist({ id, title, image })
+          else dispatchRemoveItemWishlist({ id })
+        }}
       >
         favorite
       </button>

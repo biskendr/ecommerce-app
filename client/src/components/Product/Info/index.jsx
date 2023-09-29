@@ -1,15 +1,21 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import ProductInfoStock from './Stock'
+import ProductInfoBasket from './Basket'
 
-export default function ProductInfo({ data }) {
+export default function ProductInfo({ data, isFavorite }) {
   const {
+    id,
     title,
     price,
     description,
     material,
+    image,
     relationProducts,
     productVariation,
   } = data
+
+  const [selectedSize, setSelectedSize] = useState('')
 
   return (
     <div className="product-info">
@@ -37,7 +43,13 @@ export default function ProductInfo({ data }) {
           })}
         </>
       )}
-      <ProductInfoStock productVariation={productVariation} />
+      <ProductInfoStock
+        productVariation={productVariation}
+        setSelectedSize={setSelectedSize}
+      />
+      <ProductInfoBasket
+        data={{ selectedSize, isFavorite, id, title, image }}
+      />
     </div>
   )
 }

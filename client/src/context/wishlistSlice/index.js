@@ -2,24 +2,32 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  items: [],
+  wishlist: localStorage.getItem('wishlist')
+    ? JSON.parse(localStorage.getItem('wishlist'))
+    : [],
 }
 
 const wishlistSlice = createSlice({
   name: 'wishlist',
   initialState,
   reducers: {
-    addItem: (state, action) => {
-      state.items.push(action.payload)
+    addToWishlist: (state, action) => {
+      state.wishlist.push(action.payload)
+      localStorage.setItem('wishlist', JSON.stringify(state.wishlist))
     },
-    removeItem: (state, action) => {
-      state.items = state.items.filter((item) => item.id !== action.payload.id)
+    removeToWishlist: (state, action) => {
+      state.wishlist = state.wishlist.filter(
+        (item) => item.id !== action.payload.id
+      )
+      localStorage.setItem('wishlist', JSON.stringify(state.wishlist))
     },
-    clearList: (state) => {
-      state.items = []
+    clearWishlist: (state) => {
+      state.wishlist = []
+      localStorage.setItem('wishlist', JSON.stringify(state.wishlist))
     },
   },
 })
 
-export const { addItem, removeItem, clearList } = wishlistSlice.actions
+export const { addToWishlist, removeToWishlist, clearWishlist } =
+  wishlistSlice.actions
 export default wishlistSlice.reducer

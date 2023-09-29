@@ -1,13 +1,17 @@
-import { addItem, removeItem, clearList } from '@/context/wishlistSlice'
 import store from '@/context/store'
+import {
+  addToWishlist,
+  clearWishlist,
+  removeToWishlist,
+} from '@/context/wishlistSlice'
 
-export function dispatchAddItem(item) {
-  store.dispatch(addItem(item))
+export function dispatchAddItemWishlist(item) {
+  store.dispatch(addToWishlist(item))
 }
 
-export function dispatchRemoveItem(item) {
-  store.dispatch(removeItem(item))
+export function dispatchRemoveItemWishlist(item) {
+  store.dispatch(removeToWishlist(item))
 }
-export function dispatchClearList() {
-  store.dispatch(clearList())
+export function dispatchClearWishlist() {
+  store.dispatch(clearWishlist())
 }
