@@ -10,11 +10,6 @@
     justify-content: space-between;
     grid-gap: 2.5em;
     &-wrap {
-      @media (max-width: map-get($breakpoints, large)) {
-        width: 250px;
-      }
-      width: 300px;
-      height: auto;
       margin: 0 auto;
       opacity: 1;
       transition: 0.5s ease;

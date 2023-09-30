@@ -1,5 +1,4 @@
 .wishlist {
-  overflow: scroll;
   h1 {
     font-size: 1.5rem;
   }
@@ -33,7 +32,7 @@
     }
     &-button-clear {
       float: right;
-      margin-right: 1rem;
+      margin: 1rem;
     }
   }
 }

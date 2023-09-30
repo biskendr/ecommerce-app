@@ -16,7 +16,7 @@ export default function Header() {
           <span className="material-symbols-sharp">copyright</span>
         </Link>
         <Link to="/" className="header-logo-large">
-          Clothes
+          <span className="material-symbols-sharp">Clothes</span>
         </Link>
       </h1>
       <Menu />

@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react'
 
 const initialState = {
   category: [],
-  price: 70,
+  price: 100,
   sort: null,
 }
 

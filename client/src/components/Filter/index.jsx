@@ -45,8 +45,8 @@ export default function Filter(props) {
                   name="price"
                   type="range"
                   min={0}
-                  max={70}
-                  step={10}
+                  max={100}
+                  step={5}
                   value={price}
                   onChange={setFilters}
                 />

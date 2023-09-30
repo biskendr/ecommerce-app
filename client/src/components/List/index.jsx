@@ -6,7 +6,7 @@ function ProductItem({ item }) {
 
   return (
     <Link to={`/products/${item.id}`} key={item.id} className="list-items-wrap">
-      <img src={imageUrl} alt={title} />
+      <img src={imageUrl} alt={title} width={300} height={450} loading="lazy" />
       <h2>{title}</h2>
       <h3>${price}</h3>
     </Link>

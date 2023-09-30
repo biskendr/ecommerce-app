@@ -24,16 +24,18 @@ const cartSlice = createSlice({
     },
     decreaseQuantityToCart: (state, action) => {
       const itemInCart = state.cart.find(
-        (item) => item.id === action.payload.id
+        (item) =>
+          item.id === action.payload.id && item.size === action.payload.size
       )
-      if (itemInCart && itemInCart.quantity > 0) {
+      if (itemInCart && itemInCart.quantity > 1) {
         itemInCart.quantity -= 1
         localStorage.setItem('cart', JSON.stringify(state.cart))
       }
     },
     removeToCart: (state, action) => {
       const itemIndex = state.cart.findIndex(
-        (item) => item.id === action.payload.id
+        (item) =>
+          item.id === action.payload.id && item.size === action.payload.size
       )
       if (itemIndex !== -1) {
         state.cart.splice(itemIndex, 1)

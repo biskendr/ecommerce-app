@@ -1,16 +1,21 @@
 .cart {
   width: 100%;
-  padding-right: 2rem;
-  overflow: scroll;
   h1 {
     font-size: 1.5rem;
+  }
+  h2 {
+    font-weight: 500;
+  }
+  .clear {
+    float: right;
+    margin: 1rem;
   }
   &-wrapper {
     display: grid;
     gap: 2rem 0;
     &-item {
       display: grid;
-      grid-template-columns: 4fr 4fr 1fr 1fr 2fr 1fr;
+      grid-template-columns: repeat(2, 4fr) 2fr repeat(3, 1fr) 2fr;
       align-items: center;
       text-align: center;
       img {
@@ -18,16 +23,18 @@
         height: auto;
       }
       &-button {
-        display: grid;
         background: none;
         border: none;
-        border: 2px solid black;
+        cursor: pointer;
+      }
+      .increase,
+      .decrease {
         background: black;
+        border: 2px solid black;
         color: white;
-        opacity: 1;
-        &:active {
-          opacity: 0.5;
-        }
+      }
+      .remove {
+        padding-left: 1rem;
       }
     }
   }
