@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import HomeLayout from '@/layouts/Home'
 import NotFound from '~/NotFound'
 import Loading from '~/Loading'
-import { Home, Category, Product } from './LazyComponent'
+import { Home, Category, Product, Profile } from './LazyComponent'
 
 const routes = createBrowserRouter([
   {
@@ -31,6 +31,14 @@ const routes = createBrowserRouter([
         element: (
           <Suspense fallback={<Loading />}>
             <Product />
+          </Suspense>
+        ),
+      },
+      {
+        path: '/profile',
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Profile />
           </Suspense>
         ),
       },
