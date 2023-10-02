@@ -3,7 +3,15 @@ import { createBrowserRouter } from 'react-router-dom'
 import HomeLayout from '@/layouts/Home'
 import NotFound from '~/NotFound'
 import Loading from '~/Loading'
-import { Home, Category, Product, Profile } from './LazyComponent'
+import LoginLayout from '@/layouts/Login'
+import {
+  Home,
+  Category,
+  Product,
+  Profile,
+  Login,
+  Register,
+} from './LazyComponent'
 
 const routes = createBrowserRouter([
   {
@@ -33,6 +41,28 @@ const routes = createBrowserRouter([
             <Product />
           </Suspense>
         ),
+      },
+      {
+        path: '/login',
+        element: <LoginLayout />,
+        children: [
+          {
+            index: true,
+            element: (
+              <Suspense fallback={<Loading />}>
+                <Login />
+              </Suspense>
+            ),
+          },
+          {
+            path: 'register',
+            element: (
+              <Suspense fallback={<Loading />}>
+                <Register />
+              </Suspense>
+            ),
+          },
+        ],
       },
       {
         path: '/profile',

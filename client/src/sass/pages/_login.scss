@@ -1,0 +1,73 @@
+@use '../abstracts/' as *;
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 2rem;
+  }
+  hr {
+    width: 1px;
+    height: 30vh;
+    border-color: black;
+    margin: 2rem;
+  }
+  &-signin,
+  &-signup {
+    padding: 4rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin: 1.25rem;
+      span {
+        left: 4px;
+        font-size: 1.25rem;
+        position: absolute;
+      }
+      .password {
+        right: 1rem;
+        left: auto;
+        position: absolute;
+      }
+      input {
+        border: 1px solid black;
+        padding: 0.5rem 2rem;
+      }
+    }
+    button,
+    a {
+      border: none;
+      background: black;
+      color: white;
+      padding: 1rem;
+      width: 100%;
+      cursor: pointer;
+    }
+    a {
+      padding: 0;
+    }
+  }
+  &-signup {
+    padding: 4rem;
+    > * {
+      margin: 1rem;
+    }
+    p {
+      line-height: 16px;
+      font-size: 0.75rem;
+    }
+  }
+  @media (max-width: map-get($breakpoints, large)) {
+    flex-direction: column;
+    hr {
+      height: 1px;
+      width: 50vh;
+    }
+  }
+}
