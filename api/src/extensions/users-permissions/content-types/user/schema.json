@@ -65,11 +65,10 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "Adress": {
-      "displayName": "Adress",
+    "address": {
       "type": "component",
-      "repeatable": false,
-      "component": "adress.adress",
+      "repeatable": true,
+      "component": "address.address",
       "required": true
     }
   }

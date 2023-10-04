@@ -658,7 +658,7 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
-    Adress: Attribute.Component<'adress.adress'> & Attribute.Required;
+    address: Attribute.Component<'address.address', true> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

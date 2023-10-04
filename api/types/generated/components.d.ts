@@ -1,15 +1,18 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface AdressAdress extends Schema.Component {
-  collectionName: 'components_adress_adresses';
+export interface AddressAddress extends Schema.Component {
+  collectionName: 'components_address_addresses';
   info: {
-    displayName: 'Adress';
+    displayName: 'Address';
     description: '';
   };
   attributes: {
-    country: Attribute.String;
-    city: Attribute.String;
-    adress: Attribute.Text;
+    country: Attribute.String & Attribute.Required;
+    city: Attribute.String & Attribute.Required;
+    address: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        minLength: 10;
+      }>;
   };
 }
 
@@ -51,7 +54,7 @@ export interface StockStockComponents extends Schema.Component {
 declare module '@strapi/strapi' {
   export module Shared {
     export interface Components {
-      'adress.adress': AdressAdress;
+      'address.address': AddressAddress;
       'stock.stock-components': StockStockComponents;
     }
   }
