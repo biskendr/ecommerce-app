@@ -1,3 +1,10 @@
+import RegisterForm from './Form'
+
 export default function Register() {
-  return <div>Register</div>
+  return (
+    <div className="register">
+      <h1>Register</h1>
+      <RegisterForm />
+    </div>
+  )
 }

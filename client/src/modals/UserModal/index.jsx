@@ -1,39 +1,61 @@
 import Cookies from 'js-cookie'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
+import Error from '~/Error'
+import Loading from '~/Loading'
 
 export default function UserModal() {
-  const [person, setPerson] = useState('')
-
-  useEffect(() => {
-    if (Cookies.get('user')) setPerson(JSON.parse(Cookies.get('user')))
-  }, [person])
+  const [person, setPerson] = useState()
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState()
+  const navigate = useNavigate()
 
   const handleLogout = () => {
     Cookies.remove('user')
-    setPerson('')
+    navigate(0)
   }
+
+  useEffect(() => {
+    setLoading(true)
+    if (Cookies.get('user')) {
+      const userData = JSON.parse(Cookies.get('user'))
+      setPerson(userData.user)
+      setLoading(false)
+    } else {
+      setError(true)
+    }
+  }, [])
 
   if (!Cookies.get('user')) {
     return (
-      <div>
-        <h1>Login</h1>
-        <button type="button">
-          <Link to="/login">Sign Up</Link>
-        </button>
-        <button type="button" style={{ backgroundColor: 'blue' }}>
-          <Link to="/login/register">Sign Up</Link>
-        </button>
+      <div className="user-login">
+        <h1>Sign in to your account</h1>
+        <div className="user-login-button">
+          <Link to="/login">
+            <button type="button">Sign In</button>
+          </Link>
+          <Link to="/login">
+            <button type="button">Sign Up</button>
+          </Link>
+        </div>
       </div>
     )
   }
 
+  if (error) return <Error />
+  if (loading) return <Loading />
+
   return (
-    <div>
-      {person && (
+    <div className="user">
+      {Cookies.get('user') && person && (
         <>
-          <h1>{person.user.username}</h1>
-          <h1>{person.user.email}</h1>
+          <h1>
+            <span className="material-symbols-sharp">person</span>Hi{' '}
+            {person.username}
+          </h1>
+          <Link to="/profile">
+            <button type="button">Go to Profile</button>
+          </Link>
           <button type="button" onClick={handleLogout}>
             Logout
           </button>

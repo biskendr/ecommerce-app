@@ -1,0 +1,83 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  margin: 4rem auto;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  h1 {
+    font-size: 2rem;
+  }
+
+  &-form {
+    position: relative;
+    &-error {
+      top: 3.5rem;
+      color: red;
+      font-weight: 500;
+      font-size: 1rem;
+      position: absolute;
+    }
+    &-select {
+      &-country,
+      &-city {
+        margin: 0 auto;
+        max-width: 21.125rem;
+        padding: 1rem 0;
+        position: relative;
+        select {
+          margin: 1rem 0;
+          display: flex;
+          width: 21.125rem;
+        }
+        &-error {
+          color: red;
+          font-weight: 500;
+          font-size: 1rem;
+          position: absolute;
+        }
+      }
+    }
+  }
+  &-form-select {
+    display: flex;
+    flex-direction: column;
+    select {
+      // margin: 1rem;
+      padding: 0.5rem;
+    }
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin: 1.25rem;
+      span {
+        left: 8px;
+        font-size: 1.25rem;
+        position: absolute;
+      }
+      input {
+        border: 1px solid black;
+        padding: 0.5rem 2rem;
+      }
+      .password {
+        right: 1rem;
+        left: auto;
+        position: absolute;
+      }
+    }
+    button {
+      border: none;
+      color: white;
+      padding: 1rem;
+      background: black;
+      width: auto;
+      margin: 2rem;
+    }
+  }
+}

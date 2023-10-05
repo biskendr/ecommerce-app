@@ -10,6 +10,22 @@
     float: right;
     margin: 1rem;
   }
+  .link {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    button:not(.clear) {
+      font-size: 1.25rem;
+      background: black;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      &:hover,
+      &:active {
+        cursor: pointer;
+      }
+    }
+  }
   &-wrapper {
     display: grid;
     gap: 2rem 0;

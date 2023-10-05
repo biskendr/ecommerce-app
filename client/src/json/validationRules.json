@@ -1,0 +1,38 @@
+{
+  "username": {
+    "required": "Username is required.",
+    "pattern": "^[A-Za-zÇçĞğİıÖöŞşÜü]{3,12}$",
+    "patternError": "Username should consist of letters only.",
+    "minLength": 3,
+    "minLengthError": "Username should be at least 3 characters long.",
+    "maxLength": 12,
+    "maxLengthError": "Username should be at most 12 characters short."
+  },
+  "email": {
+    "required": "Email is required.",
+    "pattern": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$",
+    "patternError": "Please enter a valid email address."
+  },
+  "password": {
+    "required": "Password is required.",
+    "minLength": 8,
+    "minLengthError": "Password should be at least 8 characters long."
+  },
+  "country": {
+    "required": "Country is required.",
+    "pattern": "^[a-zA-Z\\s]+$",
+    "patternError": "Country should consist of letters only."
+  },
+  "city": {
+    "required": "City is required.",
+    "pattern": "^[a-zA-Z\\s]+$",
+    "patternError": "City should consist of letters only."
+  },
+  "address": {
+    "required": "Address is required.",
+    "minLength": 10,
+    "minLengthError": "Address should be at least 10 characters long.",
+    "pattern": "^[A-Za-z0-9'\\.\\-\\s\\,/]",
+    "patternError": "Invalid address."
+  }
+}

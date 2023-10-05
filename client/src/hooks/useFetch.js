@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import ApiInstance from '@/services/ApiInstance'
+import { getData } from '@/services/ApiInstance'
 
 const useFetch = (url) => {
   const [data, setData] = useState(null)
@@ -10,7 +10,7 @@ const useFetch = (url) => {
     const fetchData = async () => {
       try {
         setLoading(true)
-        const res = await ApiInstance.get(url)
+        const res = await getData(url)
         setData(res.data.data)
       } catch (err) {
         setError(true)

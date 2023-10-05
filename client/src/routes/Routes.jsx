@@ -4,6 +4,7 @@ import HomeLayout from '@/layouts/Home'
 import NotFound from '~/NotFound'
 import Loading from '~/Loading'
 import LoginLayout from '@/layouts/Login'
+import ProfileLayout from '@/layouts/Profile'
 import {
   Home,
   Category,
@@ -11,36 +12,50 @@ import {
   Profile,
   Login,
   Register,
+  ProfileCart,
 } from './LazyComponent'
+import PrivateRoute from './PrivateRoute'
 
-const routes = createBrowserRouter([
+const wrapRoutes = (routes) =>
+  routes.map((route) => {
+    if (route.auth) {
+      return {
+        ...route,
+        element: (
+          <PrivateRoute>
+            <Suspense fallback={<Loading />}>{route.element}</Suspense>
+          </PrivateRoute>
+        ),
+        ...(route.children && {
+          children: wrapRoutes(route.children),
+        }),
+      }
+    }
+    return {
+      ...route,
+      element: <Suspense fallback={<Loading />}>{route.element}</Suspense>,
+      ...(route.children && {
+        children: wrapRoutes(route.children),
+      }),
+    }
+  })
+
+const routesConfig = [
   {
     path: '/',
     element: <HomeLayout />,
     children: [
       {
         index: true,
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Home />
-          </Suspense>
-        ),
+        element: <Home />,
       },
       {
         path: '/categories/:categoryID',
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Category />
-          </Suspense>
-        ),
+        element: <Category />,
       },
       {
         path: '/products/:productID',
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Product />
-          </Suspense>
-        ),
+        element: <Product />,
       },
       {
         path: '/login',
@@ -48,29 +63,28 @@ const routes = createBrowserRouter([
         children: [
           {
             index: true,
-            element: (
-              <Suspense fallback={<Loading />}>
-                <Login />
-              </Suspense>
-            ),
+            element: <Login />,
           },
           {
             path: 'register',
-            element: (
-              <Suspense fallback={<Loading />}>
-                <Register />
-              </Suspense>
-            ),
+            element: <Register />,
           },
         ],
       },
       {
         path: '/profile',
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Profile />
-          </Suspense>
-        ),
+        auth: true,
+        element: <ProfileLayout />,
+        children: [
+          {
+            index: true,
+            element: <Profile />,
+          },
+          {
+            path: 'cart',
+            element: <ProfileCart />,
+          },
+        ],
       },
       {
         path: '*',
@@ -82,6 +96,10 @@ const routes = createBrowserRouter([
     path: '*',
     element: <NotFound />,
   },
-])
+]
+
+const wrappedRoutes = wrapRoutes(routesConfig)
+
+const routes = createBrowserRouter(wrappedRoutes)
 
 export default routes

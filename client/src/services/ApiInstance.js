@@ -8,4 +8,34 @@ const ApiInstance = axios.create({
   },
 })
 
+export const getData = (url) => ApiInstance.get(url)
+
+export const getUser = (jwt) => {
+  const url = '/users/me?populate=*'
+  return ApiInstance.get(url, {
+    headers: {
+      Authorization: `Bearer  ${jwt}`,
+    },
+  })
+}
+export const postLogin = (identifier, password) => {
+  const url = '/auth/local'
+  return ApiInstance.post(url, { identifier, password })
+}
+export const postRegister = (form) => {
+  const url = '/auth/local/register'
+  const { username, email, password, country, city, address } = form
+  return ApiInstance.post(url, {
+    username,
+    email,
+    password,
+    address: [
+      {
+        country,
+        city,
+        address,
+      },
+    ],
+  })
+}
 export default ApiInstance

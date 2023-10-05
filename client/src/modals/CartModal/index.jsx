@@ -56,13 +56,20 @@ export default function CartModal() {
         </div>
       )}
       {cart.length > 0 && (
-        <button
-          type="button"
-          className="cart-wrapper-item-button clear"
-          onClick={() => dispatchClearCart()}
-        >
-          <span className="material-symbols-sharp">delete</span>
-        </button>
+        <>
+          <div className="cart-wrapper-item-button clear">
+            <button
+              type="button"
+              className="cart-wrapper-item-button clear"
+              onClick={() => dispatchClearCart()}
+            >
+              <span className="material-symbols-sharp">delete</span>
+            </button>
+          </div>
+          <Link to="/profile/cart" className="link">
+            <button type="button">Go to Cart</button>
+          </Link>
+        </>
       )}
     </div>
   )
