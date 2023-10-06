@@ -1,0 +1,125 @@
+@use '../../abstracts/' as *;
+
+.profile-cart {
+  max-width: 70%;
+  margin: 0 auto;
+  .buy {
+    background: black;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    width: 100%;
+    opacity: 1;
+    &:hover {
+      opacity: 0.85;
+    }
+    &:active {
+      opacity: 0.75;
+    }
+  }
+  .remove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-button {
+      background: none;
+      border: none;
+      opacity: 1;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+  @media (max-width: map-get($breakpoints, large)) {
+    img {
+      min-width: 30vmax;
+    }
+    table {
+      tr {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+      }
+      td,
+      th {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        padding: 0;
+        h1 {
+          padding: 0;
+        }
+      }
+    }
+  }
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    span {
+      padding: 1rem;
+    }
+  }
+  table {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    thead,
+    tbody,
+    tfoot {
+      vertical-align: top;
+    }
+    tr {
+      display: flex;
+      width: 100%;
+    }
+    th,
+    td {
+      display: flex;
+      flex-direction: column;
+      text-align: start;
+      // gap: 1rem;
+      width: 100%;
+      padding: 2rem 0;
+      border-top: 1px solid black;
+    }
+    tfoot {
+      font-size: 1.5rem;
+      font-weight: 500;
+      tr {
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        th:nth-child(2) {
+          text-align: right;
+        }
+      }
+    }
+    h1 {
+      text-align: start;
+      font-size: 1.5rem;
+      padding: 2rem 0;
+    }
+    img {
+      max-width: 20vmax;
+      height: auto;
+      aspect-ratio: 1/1;
+      object-fit: contain;
+    }
+    .quantity {
+      display: flex;
+      align-items: center;
+      // font-size: 1.125rem;
+      button {
+        background: black;
+        color: white;
+        border: none;
+        margin: 0.5rem;
+        padding: 0.25rem 0.5rem;
+      }
+    }
+    .bold {
+      font-size: 1.125rem;
+      font-weight: 500;
+    }
+  }
+}

@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        <small>&copy; 2023 Fashion EC. All rights reserved.</small>
+        <small>&copy; 2023 Clothes All rights reserved.</small>
         <div className="footer-social">
           <h3>Follow Us</h3>
           <div className="footer-social-links">

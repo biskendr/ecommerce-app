@@ -2,6 +2,8 @@
 
 .stripe {
   overflow: hidden;
+  position: relative;
+  max-width: 100%;
   background: $body-background-secondary-color;
   white-space: nowrap;
   &-mid {
@@ -16,6 +18,7 @@
     margin: $size-6 0;
     word-spacing: $size-4;
     word-break: break-all;
+    width: fit-content;
     p {
       padding: 0 $size-11;
       font-size: $font-size-900;
@@ -35,12 +38,12 @@
       transform: translateX(0%);
     }
     to {
-      transform: translateX(-100%);
+      transform: translateX(-50%);
     }
   }
   @keyframes LeftToRight {
     from {
-      transform: translateX(-100%);
+      transform: translateX(-50%);
     }
     to {
       transform: translateX(0%);

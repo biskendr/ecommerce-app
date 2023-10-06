@@ -3,11 +3,24 @@ import {
   dispatchAddItemWishlist,
   dispatchRemoveItemWishlist,
 } from '@/utils/wishlistUtils'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function ProductInfoBasket({ data }) {
   const [quantity, setQuantity] = useState(1)
-  const { selectedSize, isFavorite, id, title, image } = data
+  const {
+    selectedSize,
+    isFavorite,
+    id,
+    title,
+    image,
+    price,
+    productVariation,
+  } = data
+  const { stock_quantity: stock } = productVariation.data.attributes
+
+  useEffect(() => {
+    setQuantity(1)
+  }, [selectedSize])
 
   return (
     <div className="product-basket">
@@ -23,6 +36,7 @@ export default function ProductInfoBasket({ data }) {
         type="button"
         className="product-basket-counter"
         onClick={() => setQuantity((prev) => prev + 1)}
+        disabled={stock[selectedSize] <= quantity}
       >
         +
       </button>
@@ -35,7 +49,9 @@ export default function ProductInfoBasket({ data }) {
               id,
               title,
               image,
+              price,
               quantity,
+              stock: stock[selectedSize],
               size: selectedSize,
             })
           // eslint-disable-next-line no-alert

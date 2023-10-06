@@ -16,7 +16,6 @@ export default function ProductInfo({ data, isFavorite }) {
   } = data
 
   const [selectedSize, setSelectedSize] = useState('')
-
   return (
     <div className="product-info">
       <h1>{title}</h1>
@@ -48,7 +47,15 @@ export default function ProductInfo({ data, isFavorite }) {
         setSelectedSize={setSelectedSize}
       />
       <ProductInfoBasket
-        data={{ selectedSize, isFavorite, id, title, image }}
+        data={{
+          selectedSize,
+          isFavorite,
+          id,
+          title,
+          image,
+          price,
+          productVariation,
+        }}
       />
     </div>
   )

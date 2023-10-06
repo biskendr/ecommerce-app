@@ -15,7 +15,7 @@ export default function CartModal() {
       {cart.length > 0 ? (
         <div className="cart-wrapper">
           {cart.map((item) => {
-            const { id, title, image, quantity, size } = item
+            const { id, title, image, quantity, size, stock } = item
             const { url, name } = image.data[0].attributes.formats.thumbnail
             return (
               <div key={id + size} className="cart-wrapper-item">
@@ -36,6 +36,7 @@ export default function CartModal() {
                   type="button"
                   className="cart-wrapper-item-button decrease"
                   onClick={() => dispatchAddItemCart({ id, size, quantity: 1 })}
+                  disabled={stock === quantity}
                 >
                   +
                 </button>

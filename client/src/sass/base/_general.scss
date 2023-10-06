@@ -34,6 +34,12 @@ a {
   }
 }
 
+button:is(:disabled) {
+  border: none !important;
+  background-color: #cccccc !important;
+  color: #666666 !important;
+}
+
 .container {
   width: 70%;
   display: flex;
