@@ -16,13 +16,14 @@ export default function Menu() {
       <ul className="header-actions-menu">
         {menuItems.map(({ icon, modalName }) => (
           <li key={icon}>
-            <button
+            <span
               type="button"
               className="material-symbols-sharp"
               onClick={() => handleModal(modalName)}
+              role="presentation"
             >
               {icon}
-            </button>
+            </span>
           </li>
         ))}
       </ul>

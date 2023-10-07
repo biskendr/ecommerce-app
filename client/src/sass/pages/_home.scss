@@ -4,7 +4,7 @@
   &-products {
     width: 80%;
     margin: 0 auto;
-    padding: 8rem 0;
+    padding: $size-14 0;
     @media (max-width: map-get($breakpoints, medium)) {
       width: 100%;
     }
@@ -13,30 +13,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    height: 500px;
-    width: 100%;
     position: relative;
     overflow: hidden;
-    h1 {
+    span:first-child {
       position: absolute;
-      font-size: 22vi;
+      font-size: 22vmin;
       z-index: 99;
     }
-    :nth-child(2) {
-      z-index: 99;
-      rotate: 20deg;
+    :nth-child(even) {
+      rotate: 30deg;
     }
     :nth-child(3) {
-      rotate: 200deg;
-    }
-    :nth-child(4) {
-      z-index: 99;
-      rotate: 60deg;
+      rotate: 190deg;
     }
     .material-symbols-sharp {
       color: white;
-      font-size: 36em;
+      font-size: $size-18;
       font-variation-settings: 'wght' 100;
       text-shadow:
         1px 1px 2px rgb(0, 0, 0, 0.1),

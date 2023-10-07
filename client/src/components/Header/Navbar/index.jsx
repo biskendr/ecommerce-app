@@ -11,9 +11,7 @@ export default function Navbar() {
       <div
         className={`header-hamburger ${menuActive ? 'active' : ''}`}
         onClick={toggleMenu}
-        onKeyPress={() => {}}
-        role="button"
-        tabIndex="0"
+        role="presentation"
       >
         <span className="header-hamburger-bar" />
         <span className="header-hamburger-bar" />

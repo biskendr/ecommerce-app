@@ -17,7 +17,7 @@ export default function ProductInfoStock({
 
   return (
     <>
-      <h3>Sizes</h3>
+      <h2>Sizes</h2>
       {productVariation.data != null && (
         <select
           onChange={(e) => {

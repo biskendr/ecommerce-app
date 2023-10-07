@@ -3,37 +3,12 @@
 .profile-cart {
   max-width: 70%;
   margin: 0 auto;
-  .buy {
-    background: black;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    width: 100%;
-    opacity: 1;
-    &:hover {
-      opacity: 0.85;
-    }
-    &:active {
-      opacity: 0.75;
-    }
-  }
   .remove {
     display: flex;
     justify-content: center;
     align-items: center;
-    &-button {
-      background: none;
-      border: none;
-      opacity: 1;
-      &:hover {
-        opacity: 0.5;
-      }
-    }
   }
   @media (max-width: map-get($breakpoints, large)) {
-    img {
-      min-width: 30vmax;
-    }
     table {
       tr {
         display: flex;
@@ -54,7 +29,6 @@
     }
   }
   h1 {
-    font-size: 2rem;
     text-align: center;
     span {
       padding: 1rem;
@@ -78,7 +52,6 @@
       display: flex;
       flex-direction: column;
       text-align: start;
-      // gap: 1rem;
       width: 100%;
       padding: 2rem 0;
       border-top: 1px solid black;
@@ -96,19 +69,12 @@
     }
     h1 {
       text-align: start;
-      font-size: 1.5rem;
       padding: 2rem 0;
     }
-    img {
-      max-width: 20vmax;
-      height: auto;
-      aspect-ratio: 1/1;
-      object-fit: contain;
-    }
+
     .quantity {
       display: flex;
       align-items: center;
-      // font-size: 1.125rem;
       button {
         background: black;
         color: white;

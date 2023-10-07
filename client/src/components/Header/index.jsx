@@ -11,14 +11,14 @@ export default function Header() {
     <header className="header">
       {open && <Modal />}
       <Navbar />
-      <h1 className="header-logo">
+      <span className="header-logo">
         <Link to="/" className="header-logo-small">
           <span className="material-symbols-sharp">copyright</span>
         </Link>
         <Link to="/" className="header-logo-large">
           <span className="material-symbols-sharp">Clothes</span>
         </Link>
-      </h1>
+      </span>
       <Menu />
     </header>
   )

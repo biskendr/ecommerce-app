@@ -42,20 +42,6 @@
   &-actions-menu {
     display: flex;
     gap: $size-2;
-    button {
-      background: transparent;
-      border: none;
-      transition: 0.5s;
-      font-size: $size-7;
-      padding: $size-1;
-      display: flex;
-      &:hover {
-        cursor: pointer;
-      }
-      &:active {
-        font-size: 2em;
-      }
-    }
   }
   &-hamburger {
     display: none;

@@ -1,11 +1,6 @@
 .cart {
   width: 100%;
-  h1 {
-    font-size: 1.5rem;
-  }
-  h2 {
-    font-weight: 500;
-  }
+
   .clear {
     float: right;
     margin: 1rem;
@@ -14,17 +9,6 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    button:not(.clear) {
-      font-size: 1.25rem;
-      background: black;
-      border: none;
-      color: white;
-      padding: 0.5rem 1rem;
-      &:hover,
-      &:active {
-        cursor: pointer;
-      }
-    }
   }
   &-wrapper {
     display: grid;
@@ -34,24 +18,6 @@
       grid-template-columns: repeat(2, 4fr) 2fr repeat(3, 1fr) 2fr;
       align-items: center;
       text-align: center;
-      img {
-        width: 120px;
-        height: auto;
-      }
-      &-button {
-        background: none;
-        border: none;
-        cursor: pointer;
-      }
-      .increase,
-      .decrease {
-        background: black;
-        border: 2px solid black;
-        color: white;
-      }
-      .remove {
-        margin-left: 1rem;
-      }
     }
   }
 }

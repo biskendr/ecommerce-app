@@ -60,8 +60,9 @@ export default function ProductInfoBasket({ data }) {
       >
         ADD TO CART
       </button>
-      <button
-        type="button"
+      <span
+        // type="button"
+        role="presentation"
         className={`material-symbols-sharp basket-wishlist${
           isFavorite ? '' : '-fill'
         }`}
@@ -71,7 +72,7 @@ export default function ProductInfoBasket({ data }) {
         }}
       >
         favorite
-      </button>
+      </span>
     </div>
   )
 }

@@ -19,14 +19,14 @@ export default function ProductInfo({ data, isFavorite }) {
   return (
     <div className="product-info">
       <h1>{title}</h1>
-      <h2>${price}</h2>
-      <h3>Descriptions</h3>
+      <h1>${price}</h1>
+      <h2>Descriptions</h2>
       <p>{description}</p>
-      <h3>Materials</h3>
+      <h2>Materials</h2>
       <p>{material}</p>
       {relationProducts.data.length > 0 && (
         <>
-          <h3>Colors</h3>
+          <h2>Colors</h2>
           {relationProducts.data.map((item) => {
             const { colorHex } = item.attributes
             return (

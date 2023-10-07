@@ -25,19 +25,7 @@
     accent-color: black;
     color: black;
   }
-  button {
-    background: transparent;
-    border: transparent;
-    &:hover {
-      background: black;
-      color: white;
-      width: $size-7;
-      transition: 1s all ease;
-    }
-    &:active {
-      border: 1px solid black;
-    }
-  }
+
   &-items {
     @media (max-width: map-get($breakpoints, large)) {
       display: flex;

@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="home">
       <div className="home-hero">
-        <h1>Clothes</h1>
+        <span>Clothes</span>
         <span className="material-symbols-sharp">checkroom</span>
         <span className="material-symbols-sharp">checkroom</span>
         <span className="material-symbols-sharp">checkroom</span>

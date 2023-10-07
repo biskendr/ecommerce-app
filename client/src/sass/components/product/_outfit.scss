@@ -3,12 +3,6 @@
 .outfit {
   width: 80vw;
   margin: 0 auto;
-  h1 {
-    font-size: 2rem;
-  }
-  h3 {
-    font-size: 1.125rem;
-  }
   &-wrapper {
     gap: 1rem;
     padding: 1rem;
@@ -23,10 +17,5 @@
       justify-content: center;
       align-items: center;
     }
-  }
-  img {
-    height: auto;
-    object-fit: cover;
-    width: 180px;
   }
 }

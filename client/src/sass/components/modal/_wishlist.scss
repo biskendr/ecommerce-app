@@ -1,7 +1,4 @@
 .wishlist {
-  h1 {
-    font-size: 1.5rem;
-  }
   &-wrapper {
     display: grid;
     gap: 2rem;
@@ -9,30 +6,9 @@
       display: grid;
       grid-template-columns: 1fr 2fr 1fr;
       align-items: center;
-      img {
-        width: 120px;
-        height: auto;
-      }
       h2 {
         padding: 1rem;
       }
-    }
-    &-button-close,
-    &-button-clear {
-      border: none;
-      background: none;
-      opacity: 1;
-      cursor: pointer;
-      span {
-        font-size: 1.75rem;
-      }
-      &:active {
-        opacity: 0.5;
-      }
-    }
-    &-button-clear {
-      float: right;
-      margin: 1rem;
     }
   }
 }

@@ -4,19 +4,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  h1 {
-    font-size: 2rem;
-  }
+  text-align: center;
   hr {
     width: 1px;
     height: 30vh;
-    border-color: black;
-    margin: 2rem;
+    margin: $size-8;
   }
   &-signin,
   &-signup {
-    padding: 4rem;
+    padding: $size-11;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -24,14 +20,14 @@
       position: relative;
       display: flex;
       align-items: center;
-      margin: 1.25rem;
+      margin: $size-5;
       span {
         left: 4px;
-        font-size: 1.25rem;
+        font-size: $size-5;
         position: absolute;
       }
       .password {
-        right: 1rem;
+        right: $size-4;
         left: auto;
         position: absolute;
       }
@@ -39,18 +35,6 @@
         border: 1px solid black;
         padding: 0.5rem 2rem;
       }
-    }
-    button,
-    a {
-      border: none;
-      background: black;
-      color: white;
-      padding: 1rem;
-      width: 100%;
-      cursor: pointer;
-    }
-    a {
-      padding: 0;
     }
   }
   &-signup {
@@ -67,7 +51,7 @@
     flex-direction: column;
     hr {
       height: 1px;
-      width: 50vh;
+      width: 75vw;
     }
   }
 }

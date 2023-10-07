@@ -3,21 +3,17 @@
 .category {
   width: 80%;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  @media (max-width: map-get($breakpoints, large)) {
-    width: 100%;
-  }
   &-title {
-    font-size: $size-13;
-    font-size: 13vmin;
+    font-size: 9vmin;
     font-weight: 500;
     padding: $size-4 $size-11;
   }
   &-content {
     display: flex;
-    @media (max-width: map-get($breakpoints, large)) {
-      display: flex;
+  }
+  @media (max-width: map-get($breakpoints, large)) {
+    width: 100%;
+    &-content {
       flex-direction: column;
     }
   }

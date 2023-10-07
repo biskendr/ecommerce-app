@@ -1,51 +1,22 @@
 @use '../../abstracts/' as *;
 
 .product-basket {
-  //   background-color: blue;
   display: flex;
-  //   margin: 2rem 0;
   align-items: center;
   font-size: 1rem;
   margin: 2rem 0;
   opacity: 1;
-  .basket-wishlist,
-  .basket-wishlist-fill {
-    background: none;
-    border: none;
-    font-variation-settings:
-      'FILL' 1,
-      'wght' 500;
-    font-size: 4rem;
-    color: black;
+  .basket-wishlist {
+    font-size: $size-12;
     &-fill {
-      font-variation-settings: 'FILL' 0;
+      font-size: $size-12;
+      font-variation-settings:
+        'FILL' 1,
+        'wght' 100;
     }
   }
   @media (max-width: map-get($breakpoints, medium)) {
     flex-direction: column;
     gap: 2rem;
-  }
-  &-add {
-    background: black;
-    color: white;
-    border: none;
-    margin: 0 2rem;
-    padding: 0.75rem;
-    // border: 1px solid black;
-    transition: 0.1s all ease;
-    &:active {
-      opacity: 0.75;
-    }
-  }
-  &-counter {
-    gap: 2rem;
-    margin: 1rem;
-    padding: 0.75rem 1rem;
-    background: black;
-    color: white;
-    border: 1px solid black;
-    &:active {
-      opacity: 0.75;
-    }
   }
 }

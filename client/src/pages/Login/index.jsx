@@ -1,7 +1,7 @@
 import { postLogin } from '@/services/ApiInstance'
 import Cookies from 'js-cookie'
 import { useState } from 'react'
-import { useNavigate, Outlet, Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -16,16 +16,11 @@ export default function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    // const responseData = await ApiInstance.post('/auth/local', {
-    //   identifier: email,
-    //   password,
     postLogin(email, password)
       .then((res) => setToken(res.data))
       .catch((error) => {
         throw new Error('An error occurred:', error.response)
       })
-
-    // setToken(responseData.data)
   }
   return (
     <div className="login">
@@ -78,7 +73,6 @@ export default function Login() {
         </Link>
         <p>Sign up now and take advantage of the opportunities.</p>
       </div>
-      <Outlet />
     </div>
   )
 }

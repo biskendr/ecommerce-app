@@ -28,7 +28,6 @@ export default function RegisterForm() {
         throw new Error('An error occurred:', error.response)
       }
     }
-    // else console.log(errors)
   }
 
   return (

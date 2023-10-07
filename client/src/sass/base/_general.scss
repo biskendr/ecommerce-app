@@ -28,16 +28,47 @@ a {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: black;
+    background-color: $body-background-secondary-color;
     transform-origin: bottom left;
     transition: transform 0.5s ease-out;
   }
 }
 
+button {
+  border: none;
+  background: $body-background-secondary-color;
+  color: $color-text-primary;
+  padding: $size-2 $size-4;
+  margin: $size-2;
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+img {
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  max-width: 80vi;
+}
+
+h1 {
+  font-size: $font-size-800;
+  font-weight: $font-weight-semi-bold;
+}
+h2 {
+  font-size: $font-size-700;
+}
+h3 {
+  font-size: $font-size-600;
+}
+h4 {
+  font-size: $font-size-500;
+}
+
 button:is(:disabled) {
-  border: none !important;
-  background-color: #cccccc !important;
-  color: #666666 !important;
+  border: none;
+  background-color: $button-disable-body-color;
+  color: $button-disable-color;
 }
 
 .container {
