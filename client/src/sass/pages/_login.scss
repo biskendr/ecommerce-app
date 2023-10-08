@@ -22,7 +22,7 @@
       align-items: center;
       margin: $size-5;
       span {
-        left: 4px;
+        left: $size-1;
         font-size: $size-5;
         position: absolute;
       }
@@ -31,20 +31,15 @@
         left: auto;
         position: absolute;
       }
-      input {
-        border: 1px solid black;
-        padding: 0.5rem 2rem;
-      }
     }
   }
   &-signup {
-    padding: 4rem;
-    > * {
-      margin: 1rem;
+    * {
+      margin: $size-2;
     }
     p {
-      line-height: 16px;
-      font-size: 0.75rem;
+      line-height: $size-4;
+      font-size: $font-size-400;
     }
   }
   @media (max-width: map-get($breakpoints, large)) {

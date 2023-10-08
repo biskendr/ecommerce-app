@@ -1,11 +1,11 @@
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import {
   dispatchAddItemCart,
   dispatchClearCart,
   dispatchDecreaseItemCart,
   dispatchRemoveItemCart,
 } from '@/utils/cartUtils'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 export default function CartModal() {
   const { cart } = useSelector((state) => state.cart)
@@ -22,8 +22,8 @@ export default function CartModal() {
                 <Link to={`/products/${id}`}>
                   <img src={url} alt={name} />
                 </Link>
-                <h2>{title}</h2>
-                <h2>{size}</h2>
+                <p>{title}</p>
+                <p>{size}</p>
                 <button
                   type="button"
                   className="cart-wrapper-item-button increase"
@@ -31,7 +31,7 @@ export default function CartModal() {
                 >
                   -
                 </button>
-                <h2>{quantity}</h2>
+                <p>{quantity}</p>
                 <button
                   type="button"
                   className="cart-wrapper-item-button decrease"
@@ -40,13 +40,13 @@ export default function CartModal() {
                 >
                   +
                 </button>
-                <button
-                  type="button"
-                  className="cart-wrapper-item-button remove"
+                <span
+                  role="presentation"
+                  className="material-symbols-sharp remove"
                   onClick={() => dispatchRemoveItemCart({ id, size })}
                 >
-                  <span className="material-symbols-sharp">close</span>
-                </button>
+                  close
+                </span>
               </div>
             )
           })}
@@ -58,16 +58,16 @@ export default function CartModal() {
       )}
       {cart.length > 0 && (
         <>
-          <div className="cart-wrapper-item-button clear">
-            <button
-              type="button"
-              className="cart-wrapper-item-button clear"
+          <div className="cart-wrapper-item">
+            <span
+              role="presentation"
+              className="material-symbols-sharp clear"
               onClick={() => dispatchClearCart()}
             >
-              <span className="material-symbols-sharp">delete</span>
-            </button>
+              delete
+            </span>
           </div>
-          <Link to="/profile/cart" className="link">
+          <Link to="/profile/cart" className="button">
             <button type="button">Go to Cart</button>
           </Link>
         </>

@@ -1,9 +1,9 @@
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import {
   dispatchClearWishlist,
   dispatchRemoveItemWishlist,
 } from '@/utils/wishlistUtils'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 export default function WishlistModal() {
   const { wishlist } = useSelector((state) => state.wishlist)
@@ -20,14 +20,14 @@ export default function WishlistModal() {
                 <Link to={`/products/${id}`}>
                   <img src={url} alt={name} />
                 </Link>
-                <h2>{title}</h2>
-                <button
-                  type="button"
-                  className="wishlist-wrapper-button-close"
+                <p>{title}</p>
+                <span
+                  role="presentation"
+                  className="material-symbols-sharp remove"
                   onClick={() => dispatchRemoveItemWishlist({ id })}
                 >
-                  <span className="material-symbols-sharp">close</span>
-                </button>
+                  close
+                </span>
               </div>
             )
           })}
@@ -36,13 +36,15 @@ export default function WishlistModal() {
         <div>There are no products in the wishlist.</div>
       )}
       {wishlist.length > 0 && (
-        <button
-          type="button"
-          className="wishlist-wrapper-button-clear"
-          onClick={() => dispatchClearWishlist()}
-        >
-          <span className="material-symbols-sharp">delete</span>
-        </button>
+        <div className="wishlist-wrapper-item">
+          <span
+            role="presentation"
+            className="material-symbols-sharp clear"
+            onClick={() => dispatchClearWishlist()}
+          >
+            delete
+          </span>
+        </div>
       )}
     </div>
   )

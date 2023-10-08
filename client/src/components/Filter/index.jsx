@@ -6,19 +6,20 @@ export default function Filter(props) {
     <div className="filter">
       {data && filters && (
         <>
-          <h3>
+          <h1>
             Filters
-            <button
-              className="filter-button"
+            <span
+              role="presentation"
+              className="material-symbols-sharp reset"
               type="button"
               onClick={resetFilters}
             >
-              <span className="material-symbols-sharp">restart_alt</span>
-            </button>
-          </h3>
+              restart_alt
+            </span>
+          </h1>
           <div className="filter-items">
             <div className="filter-item">
-              <h4>Categories</h4>
+              <h2>Categories</h2>
               {data.map((item) => {
                 const { id, attributes } = item
                 const { title } = attributes
@@ -38,7 +39,7 @@ export default function Filter(props) {
               })}
             </div>
             <div className="filter-item">
-              <h4>Price</h4>
+              <h2>Price</h2>
               <div className="filter-item-price">
                 <span>$0</span>
                 <input
@@ -54,7 +55,7 @@ export default function Filter(props) {
               </div>
             </div>
             <div className="filter-item">
-              <h4>Sort</h4>
+              <h2>Sort</h2>
               <div className="filter-item-sort">
                 <label htmlFor="sort">
                   <input

@@ -1,23 +1,31 @@
-.cart {
-  width: 100%;
+@use '../../abstracts/' as *;
 
-  .clear {
-    float: right;
-    margin: 1rem;
-  }
-  .link {
+.cart {
+  .button {
     display: flex;
     justify-content: center;
     width: 100%;
+    button {
+      padding: $size-2 $size-8;
+      margin-top: $size-11;
+    }
   }
   &-wrapper {
     display: grid;
-    gap: 2rem 0;
+    gap: $size-8 0;
     &-item {
       display: grid;
       grid-template-columns: repeat(2, 4fr) 2fr repeat(3, 1fr) 2fr;
       align-items: center;
       text-align: center;
+      position: relative;
+      span {
+        position: absolute;
+        right: 0;
+      }
+      .clear {
+        margin: $size-2;
+      }
     }
   }
 }

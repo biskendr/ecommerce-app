@@ -1,3 +1,5 @@
+@use '../abstracts/' as *;
+
 .loading {
   display: flex;
   justify-content: center;
@@ -7,20 +9,20 @@
 .loading-ring {
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: $size-12;
+  height: $size-12;
 }
 .loading-ring div {
   box-sizing: border-box;
   display: block;
   position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border: 8px solid #000;
+  width: $size-11;
+  height: $size-11;
+  margin: $size-2;
+  border: $size-2 solid $border-primary-color;
   border-radius: 50%;
   animation: loading-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #000 transparent transparent transparent;
+  border-color: $border-primary-color transparent transparent transparent;
 }
 .loading-ring div:nth-child(1) {
   animation-delay: -0.45s;

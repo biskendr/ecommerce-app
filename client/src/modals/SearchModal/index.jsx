@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
+import { Link } from 'react-router-dom'
 import useDebounce from '@/hooks/useDebounce'
 import useFetch from '@/hooks/useFetch'
-import { Link } from 'react-router-dom'
 import Loading from '~/Loading'
 
 export default function SearchModal() {
@@ -44,7 +44,7 @@ export default function SearchModal() {
                 className="search-wrapper-item"
               >
                 <img src={url} alt={name} />
-                <h1>{title}</h1>
+                <p>{title}</p>
               </Link>
             )
           })}

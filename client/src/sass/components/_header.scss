@@ -41,7 +41,10 @@
   }
   &-actions-menu {
     display: flex;
-    gap: $size-2;
+    gap: $size-3;
+    li {
+      padding: $size-1;
+    }
   }
   &-hamburger {
     display: none;
@@ -54,7 +57,7 @@
       margin: $size-1 auto;
       transition: all 0.5s ease-in;
       -webkit-transition: all 0.5s ease-in;
-      background-color: black;
+      background-color: $body-background-secondary-color;
     }
   }
   @media (max-width: map-get($breakpoints, medium)) {
@@ -82,7 +85,7 @@
       left: -150%;
       flex-direction: column;
       text-align: center;
-      background-color: #d7d7d7;
+      background-color: $body-background-color;
       width: 100vw;
       height: 100%;
       transition: all 1s ease-out;
@@ -95,10 +98,10 @@
         width: 100%;
         padding: 2em;
         a:is(:hover, :active, :focus) {
-          color: #d7d7d7;
+          color: $header-menu-color;
         }
         &:hover {
-          background-color: #1a1917;
+          background-color: $header-menu-body-background-color;
           transition: all 1s ease-out;
         }
       }

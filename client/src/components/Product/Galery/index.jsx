@@ -24,7 +24,11 @@ export default function ProductGalery({ data }) {
           )
         })}
       </div>
-      <img src={focusImage.url} alt={focusImage.name} />
+      <img
+        className="product-galery-main"
+        src={focusImage.url}
+        alt={focusImage.name}
+      />
     </div>
   )
 }

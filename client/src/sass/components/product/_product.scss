@@ -3,13 +3,13 @@
 .product {
   h1,
   h2 {
-    padding-top: 1rem;
+    padding-top: $size-4;
   }
   &-detail {
     display: flex;
     flex-direction: row;
-    padding: 8rem;
-    column-gap: 4rem;
+    padding: $size-14;
+    column-gap: $size-11;
     @media (max-width: map-get($breakpoints, xlarge)) {
       flex-direction: column;
     }

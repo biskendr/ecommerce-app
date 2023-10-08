@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
@@ -16,14 +15,20 @@ const wishlistSlice = createSlice({
       localStorage.setItem('wishlist', JSON.stringify(state.wishlist))
     },
     removeToWishlist: (state, action) => {
-      state.wishlist = state.wishlist.filter(
-        (item) => item.id !== action.payload.id
+      const itemIndex = state.wishlist.findIndex(
+        (item) => item.id === action.payload.id
       )
+      if (itemIndex !== -1) {
+        state.wishlist.splice(itemIndex, 1)
+      }
       localStorage.setItem('wishlist', JSON.stringify(state.wishlist))
     },
     clearWishlist: (state) => {
-      state.wishlist = []
-      localStorage.setItem('wishlist', JSON.stringify(state.wishlist))
+      localStorage.removeItem('wishlist')
+      return {
+        ...state,
+        wishlist: [],
+      }
     },
   },
 })

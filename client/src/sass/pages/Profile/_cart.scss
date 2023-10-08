@@ -8,6 +8,9 @@
     justify-content: center;
     align-items: center;
   }
+  .buy {
+    width: 100%;
+  }
   @media (max-width: map-get($breakpoints, large)) {
     table {
       tr {
@@ -21,20 +24,19 @@
         flex-direction: column;
         text-align: center;
         align-items: center;
-        padding: 0;
-        h1 {
-          padding: 0;
-        }
       }
     }
   }
   h1 {
     text-align: center;
     span {
-      padding: 1rem;
+      padding: $size-4;
     }
   }
   table {
+    img {
+      width: 100%;
+    }
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -71,14 +73,10 @@
       text-align: start;
       padding: 2rem 0;
     }
-
     .quantity {
       display: flex;
       align-items: center;
       button {
-        background: black;
-        color: white;
-        border: none;
         margin: 0.5rem;
         padding: 0.25rem 0.5rem;
       }

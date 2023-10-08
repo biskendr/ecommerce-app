@@ -1,28 +1,51 @@
-import { getUser } from '@/services/ApiInstance'
-import Cookies from 'js-cookie'
 import { useEffect, useState } from 'react'
-import { Outlet } from 'react-router-dom'
+import Cookies from 'js-cookie'
+import { getUser } from '@/services/ApiInstance'
+import Error from '~/Error'
+import Loading from '~/Loading'
 
 export default function Profile() {
   const [user, setUser] = useState()
+  const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     const { jwt } = JSON.parse(Cookies.get('user'))
-    getUser(jwt).then((res) => setUser(res.data))
+    getUser(jwt)
+      .then((res) => setUser(res.data))
+      .catch(() => setError(true))
+      .finally(() => setLoading(false))
   }, [])
 
+  if (error) return <Error />
+  if (loading) return <Loading />
+
   return (
-    <div className="profile">
+    <div className="profile container">
       {user && (
-        <div>
-          <h1>Name: {user.username}</h1>
-          <h1>Email: {user.email}</h1>
-          <h1>Addres Information</h1>
-          <h1>Country: {user.address[0].country}</h1>
-          <h1>City: {user.address[0].city}</h1>
-          <h1>Address: {user.address[0].address}</h1>
-        </div>
+        <>
+          <div className="profile-info">
+            <span className="material-symbols-sharp">account_circle</span>
+            <p>{user.username}</p>
+            <p>{user.email}</p>
+          </div>
+          <hr />
+          <div className="profile-address">
+            <h1>Addres Information</h1>
+            <label htmlFor="country">
+              Country
+              <p>{user.address[0].country}</p>
+            </label>
+            <label htmlFor="city">
+              City
+              <p>{user.address[0].city}</p>
+            </label>
+            <label htmlFor="address">
+              Address
+              <p>{user.address[0].address}</p>
+            </label>
+          </div>
+        </>
       )}
-      <Outlet />
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import store from '@/context/store'
 import {
   addToCart,
   decreaseQuantityToCart,
@@ -5,8 +6,6 @@ import {
   clearCart,
   increaseQuantityToCart,
 } from '@/context/cartSlice'
-
-import store from '@/context/store'
 
 export function dispatchAddItemCart(item) {
   store.dispatch(addToCart(item))

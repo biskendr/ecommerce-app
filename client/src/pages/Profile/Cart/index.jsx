@@ -1,10 +1,11 @@
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import {
   dispatchDecreaseItemCart,
   dispatchIncreaseItemCart,
   dispatchRemoveItemCart,
 } from '@/utils/cartUtils'
-import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 
 export default function ProfileCart() {
   const { cart } = useSelector((state) => state.cart)
@@ -24,7 +25,7 @@ export default function ProfileCart() {
           <span className="material-symbols-sharp">shopping_bag</span>
           Cart
         </h1>
-        {cart.length === 0 && <h1>There are no products in the cart.</h1>}
+        {cart.length === 0 && <h2>There are no products in the cart.</h2>}
         <table className="profile-cart-table">
           {cart.map((item) => {
             const { id, image, size, title, price, quantity, stock } = item
@@ -34,21 +35,23 @@ export default function ProfileCart() {
               <tbody key={id + size}>
                 <tr>
                   <td>
-                    <img src={url} alt={name} />
+                    <Link to={`/products/${id}`}>
+                      <img src={url} alt={name} />
+                    </Link>
                   </td>
                   <td>
                     <div className="description-inner">
-                      <h1>{title}</h1>
+                      <h2>{title}</h2>
                       <p>Color: {title.split(' ')[0]}</p>
                       <p>Size: {size}</p>
                     </div>
                   </td>
                   <td>
-                    <h1>Each</h1>
+                    <h2>Each</h2>
                     <p className="bold">${price}</p>
                   </td>
                   <td>
-                    <h1>Quantity</h1>
+                    <h2>Quantity</h2>
                     <div className="quantity">
                       <button
                         type="button"
@@ -67,17 +70,17 @@ export default function ProfileCart() {
                     </div>
                   </td>
                   <td>
-                    <h1>Total</h1>
+                    <h2>Total</h2>
                     <p className="bold">${quantity * price}</p>
                   </td>
                   <td className="remove">
-                    <button
-                      className="remove-button"
-                      type="button"
+                    <span
+                      className="material-symbols-sharp remove"
+                      role="presentation"
                       onClick={() => dispatchRemoveItemCart({ id, size })}
                     >
-                      <span className="material-symbols-sharp">close</span>
-                    </button>
+                      close
+                    </span>
                   </td>
                 </tr>
               </tbody>
@@ -90,9 +93,11 @@ export default function ProfileCart() {
             </tr>
           </tfoot>
         </table>
-        <button type="button" className="buy">
-          Buy
-        </button>
+        {cart.length > 0 && (
+          <button type="button" className="buy">
+            Buy
+          </button>
+        )}
       </div>
     </div>
   )

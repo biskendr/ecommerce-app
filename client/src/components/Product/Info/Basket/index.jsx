@@ -1,9 +1,9 @@
+import { useEffect, useState } from 'react'
 import { dispatchAddItemCart } from '@/utils/cartUtils'
 import {
   dispatchAddItemWishlist,
   dispatchRemoveItemWishlist,
 } from '@/utils/wishlistUtils'
-import { useEffect, useState } from 'react'
 
 export default function ProductInfoBasket({ data }) {
   const [quantity, setQuantity] = useState(1)
@@ -17,7 +17,6 @@ export default function ProductInfoBasket({ data }) {
     productVariation,
   } = data
   const { stock_quantity: stock } = productVariation.data.attributes
-
   useEffect(() => {
     setQuantity(1)
   }, [selectedSize])
@@ -61,10 +60,9 @@ export default function ProductInfoBasket({ data }) {
         ADD TO CART
       </button>
       <span
-        // type="button"
         role="presentation"
         className={`material-symbols-sharp basket-wishlist${
-          isFavorite ? '' : '-fill'
+          isFavorite ? '-fill' : ''
         }`}
         onClick={() => {
           if (!isFavorite) dispatchAddItemWishlist({ id, title, image })

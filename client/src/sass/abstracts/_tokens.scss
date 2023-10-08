@@ -12,7 +12,17 @@ $body-line-height: 1.5;
 $body-font-weight: $font-weight-default;
 $body-text-color: $color-text-default;
 $body-background-color: $white;
+$body-background-primary-color: $black;
 $body-background-secondary-color: $black;
+
+$header-menu-color: $menu-color;
+$header-menu-body-background-color: $menu-background;
+
+$border-primary-color: $black;
+
+$select-disable-color: $disable;
 
 $button-disable-color: $button-primary-color;
 $button-disable-body-color: $button-secondary-color;
+
+$dot-color: $disable;

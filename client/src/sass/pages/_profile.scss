@@ -1,6 +1,43 @@
+@use '../abstracts/' as *;
+
 .profile {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  font-size: 1.25rem;
+  border: 1px solid $border-primary-color;
+  border-radius: $size-10;
+  font-size: $font-size-700;
+  margin: $size-11 auto;
+  label {
+    border-bottom: 1px solid $border-primary-color;
+    font-size: $font-size-600;
+    p {
+      font-weight: $font-weight-semi-bold;
+      font-weight: $font-weight-semi-bold;
+      font-size: $font-size-500;
+      padding: $size-2;
+    }
+  }
+  span {
+    font-size: $size-15;
+    font-variation-settings:
+      'FILL' 1,
+      'wght' 300;
+  }
+  hr {
+    width: 1px;
+    height: 30vh;
+  }
+  &-address,
+  &-info {
+    margin: $size-8 0;
+    padding: $size-8 0;
+  }
+  @media (max-width: map-get($breakpoints, large)) {
+    flex-direction: column;
+    hr {
+      width: 50vw;
+      height: 1px;
+    }
+  }
 }

@@ -1,20 +1,23 @@
-.product {
+@use '../../abstracts/' as *;
+
+.product-info {
   select {
-    padding: 0.5em;
-    font-size: 1.25em;
+    margin-top: $size-4;
+    padding: $size-2;
+    font-size: $font-size-600;
   }
   .size-option {
     &[disabled] {
-      background-color: #dedede;
+      background-color: $dot-color;
     }
   }
   .product-info-colors-dot {
-    margin-right: 1rem;
-    height: 25px;
-    width: 25px;
-    border: 1px solid #bbb;
-    background-color: #bbb;
-    border-radius: 50%;
     display: inline-block;
+    margin-right: $size-4;
+    height: $size-6;
+    width: $size-6;
+    border: 1px solid $select-disable-color;
+    background-color: $select-disable-color;
+    border-radius: 50%;
   }
 }

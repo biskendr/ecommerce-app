@@ -29,7 +29,7 @@ export default function FormInput({
           onClick={() => setTogglePassword(!togglePassword)}
         />
       )}
-      {error && <p className="register-form-error">{error}</p>}
+      {error && <p className="register-form-error">*{error}</p>}
     </label>
   )
 }

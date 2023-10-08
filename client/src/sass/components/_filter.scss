@@ -7,23 +7,18 @@
     align-items: center;
     justify-content: center;
   }
-  font-size: $size-5;
-  margin: $size-4;
-  h3 {
-    font-size: $size-7;
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
-  }
-  h4 {
+  h2 {
     margin-bottom: $size-2;
-    font-size: $size-6;
-    font-weight: 300;
+    font-weight: $font-weight-light;
     text-decoration: underline;
   }
+  label,
+  .filter-item-price span {
+    font-size: $font-size-600;
+  }
   input {
-    accent-color: black;
-    color: black;
+    accent-color: $color-text-default;
+    color: $color-text-default;
   }
 
   &-items {
@@ -41,7 +36,7 @@
         align-items: center;
         justify-content: center;
         h4 {
-          margin-right: 2rem;
+          margin-right: $size-8;
         }
       }
       @media (max-width: map-get($breakpoints, small)) {
@@ -63,7 +58,6 @@
     }
     &-category {
       &-label {
-        font-weight: 400;
         padding-left: $size-2;
       }
     }

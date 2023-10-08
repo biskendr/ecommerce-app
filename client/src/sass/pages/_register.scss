@@ -1,48 +1,11 @@
+@use '../abstracts/' as *;
+
 .register {
   display: flex;
-  flex-direction: column;
-  margin: 4rem auto;
-  width: 50%;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
-  &-form {
-    position: relative;
-    &-error {
-      top: 3.5rem;
-      color: red;
-      font-weight: 500;
-      font-size: 1rem;
-      position: absolute;
-    }
-    &-select {
-      &-country,
-      &-city {
-        margin: 0 auto;
-        max-width: 21.125rem;
-        padding: 1rem 0;
-        position: relative;
-        select {
-          margin: 1rem 0;
-          display: flex;
-          width: 21.125rem;
-        }
-        &-error {
-          color: red;
-          font-weight: 500;
-          font-size: 1rem;
-          position: absolute;
-        }
-      }
-    }
-  }
-  &-form-select {
-    display: flex;
-    flex-direction: column;
-    select {
-      padding: 0.5rem;
-    }
-  }
+  flex-direction: column;
+  font-size: $font-size-600;
   form {
     display: flex;
     flex-direction: column;
@@ -50,21 +13,34 @@
       position: relative;
       display: flex;
       align-items: center;
-      margin: 1.25rem;
+      margin: $size-6;
       span {
-        left: 8px;
-        font-size: 1.25rem;
         position: absolute;
+        left: $size-2;
+        font-size: $size-5;
       }
-      input {
-        border: 1px solid black;
-        padding: 0.5rem 2rem;
+      select {
+        padding: $size-2 $size-4;
+        width: 100%;
+      }
+      p {
+        margin-top: $size-9;
+      }
+      .register-form-error {
+        position: absolute;
+        top: $size-4;
+        font-size: $font-size-300;
+        font-weight: $font-weight-bold;
+        line-height: 1;
       }
       .password {
-        right: 1rem;
-        left: auto;
         position: absolute;
+        right: $size-4;
+        left: auto;
       }
+    }
+    button {
+      margin-top: $size-8;
     }
   }
 }

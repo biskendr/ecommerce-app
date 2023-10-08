@@ -4,8 +4,8 @@
   width: 80%;
   margin: 0 auto;
   &-title {
-    font-size: 9vmin;
-    font-weight: 500;
+    font-size: 10vmin;
+    font-weight: $font-weight-semi-bold;
     padding: $size-4 $size-11;
   }
   &-content {

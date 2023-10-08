@@ -1,5 +1,5 @@
-import useFetch from '@/hooks/useFetch'
 import { useParams } from 'react-router-dom'
+import useFetch from '@/hooks/useFetch'
 import ProductDetail from '~/Product'
 import Error from '~/Error'
 import Loading from '~/Loading'

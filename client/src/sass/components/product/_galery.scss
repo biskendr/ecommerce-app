@@ -1,24 +1,44 @@
 @use '../../abstracts/' as *;
 
 .product-galery {
-  gap: 4rem;
   display: flex;
   flex-direction: row;
+  gap: $size-8;
+  &-main {
+    object-fit: cover;
+    width: 24vmax;
+    aspect-ratio: 2/3;
+    height: 100%;
+  }
   &-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: $size-8;
+    img {
+      width: 10vmax;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 3/5;
+      cursor: pointer;
+    }
   }
   @media (max-width: map-get($breakpoints, xlarge)) {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: $size-8;
+    &-main {
+      width: 22vmax;
+    }
     &-wrapper {
-      width: 80vw;
       display: flex;
+      justify-content: center;
       flex-direction: row;
       order: 1;
+      img {
+        width: 8vmax;
+      }
     }
   }
 }

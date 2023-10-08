@@ -1,13 +1,23 @@
+@use '../../abstracts/' as *;
+
 .wishlist {
+  width: 100%;
   &-wrapper {
-    display: grid;
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: $size-8 0;
     &-item {
-      display: grid;
-      grid-template-columns: 1fr 2fr 1fr;
+      display: flex;
       align-items: center;
-      h2 {
-        padding: 1rem;
+      position: relative;
+      gap: $size-6;
+      .remove,
+      .clear {
+        position: absolute;
+        right: 0;
+      }
+      .clear {
+        margin: $size-2;
       }
     }
   }

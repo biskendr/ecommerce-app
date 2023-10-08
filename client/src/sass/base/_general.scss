@@ -8,7 +8,6 @@ body {
   background-color: $body-background-color;
   line-height: $body-line-height;
 }
-
 a {
   display: inline-block;
   position: relative;
@@ -33,24 +32,29 @@ a {
     transition: transform 0.5s ease-out;
   }
 }
-
 button {
   border: none;
   background: $body-background-secondary-color;
   color: $color-text-primary;
   padding: $size-2 $size-4;
   margin: $size-2;
+  cursor: pointer;
   &:active {
     transform: translateY(1px);
   }
 }
-
+input {
+  border: 1px solid black;
+  padding: $size-2 $size-8;
+}
+span[role='presentation'] {
+  cursor: pointer;
+}
 img {
   aspect-ratio: 1/1;
   object-fit: contain;
   max-width: 80vi;
 }
-
 h1 {
   font-size: $font-size-800;
   font-weight: $font-weight-semi-bold;
@@ -64,24 +68,20 @@ h3 {
 h4 {
   font-size: $font-size-500;
 }
-
 button:is(:disabled) {
   border: none;
   background-color: $button-disable-body-color;
   color: $button-disable-color;
 }
-
 .container {
   width: 70%;
   display: flex;
   margin: 0 auto;
 }
-
 ::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 8px;
 }
-
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: rgba(0, 0, 0, 0.75);

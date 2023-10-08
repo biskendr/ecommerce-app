@@ -1,8 +1,8 @@
+import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
+import { postRegister } from '@/services/ApiInstance'
 import useRegisterForm from '@/hooks/useRegisterForm'
 import countryList from '@/json/Country.json'
-import { postRegister } from '@/services/ApiInstance'
-import Cookies from 'js-cookie'
-import { useNavigate } from 'react-router-dom'
 import FormInput from './Input'
 import FormSelectOption from './Select'
 
@@ -59,26 +59,24 @@ export default function RegisterForm() {
         onChange={handleChange}
         error={errors.password}
       />
-      <div className="register-form-select">
-        <FormSelectOption
-          name="country"
-          value={country}
-          onChange={handleChange}
-          options={countryList.map((item) => item.country)}
-          error={errors.country}
-        />
-        <FormSelectOption
-          name="city"
-          value={form.city}
-          onChange={handleChange}
-          options={
-            (countryList.find((item) => item.country === country) || {})
-              .cities || []
-          }
-          disabled={!country && country === ''}
-          error={errors.city}
-        />
-      </div>
+      <FormSelectOption
+        name="country"
+        value={country}
+        onChange={handleChange}
+        options={countryList.map((item) => item.country)}
+        error={errors.country}
+      />
+      <FormSelectOption
+        name="city"
+        value={form.city}
+        onChange={handleChange}
+        options={
+          (countryList.find((item) => item.country === country) || {}).cities ||
+          []
+        }
+        disabled={!country && country === ''}
+        error={errors.city}
+      />
       <FormInput
         name="address"
         type="text"

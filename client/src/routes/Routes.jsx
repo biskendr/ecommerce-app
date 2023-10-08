@@ -1,10 +1,10 @@
 import { Suspense } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import HomeLayout from '@/layouts/Home'
-import NotFound from '~/NotFound'
-import Loading from '~/Loading'
 import LoginLayout from '@/layouts/Login'
 import ProfileLayout from '@/layouts/Profile'
+import NotFound from '~/NotFound'
+import Loading from '~/Loading'
 import {
   Home,
   Category,

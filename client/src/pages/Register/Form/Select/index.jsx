@@ -6,7 +6,7 @@ export default function FormSelectOption({
   disabled,
 }) {
   return (
-    <div className={`register-form-select-${name}`}>
+    <label htmlFor={name} className={`register-form-select-${name}`}>
       <select name={name} onChange={onChange} disabled={disabled}>
         <option value="" hidden>
           Select a {name}
@@ -17,7 +17,7 @@ export default function FormSelectOption({
           </option>
         ))}
       </select>
-      {error && <p className={`register-form-select-${name}-error`}>{error}</p>}
-    </div>
+      {error && <p className="register-form-error">*{error}</p>}
+    </label>
   )
 }

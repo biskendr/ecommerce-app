@@ -4,18 +4,17 @@
   width: 80vw;
   margin: 0 auto;
   &-wrapper {
-    gap: 1rem;
-    padding: 1rem;
+    gap: $size-4;
+    padding: $size-4;
     opacity: 1;
     transition: 0.5s;
     &:hover {
       opacity: 0.75;
     }
-    @media (max-width: map-get($breakpoints, medium)) {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    img {
+      width: 10vmax;
+      aspect-ratio: 3/5;
+      object-fit: cover;
     }
   }
 }

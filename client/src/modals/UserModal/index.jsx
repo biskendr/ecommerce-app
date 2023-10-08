@@ -1,6 +1,6 @@
-import Cookies from 'js-cookie'
 import { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import Cookies from 'js-cookie'
 import Error from '~/Error'
 import Loading from '~/Loading'
 

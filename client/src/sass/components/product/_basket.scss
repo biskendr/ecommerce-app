@@ -3,13 +3,13 @@
 .product-basket {
   display: flex;
   align-items: center;
-  font-size: 1rem;
-  margin: 2rem 0;
+  font-size: $size-4;
+  margin: $size-8 0;
   opacity: 1;
   .basket-wishlist {
-    font-size: $size-12;
+    font-size: $size-11;
     &-fill {
-      font-size: $size-12;
+      font-size: $size-11;
       font-variation-settings:
         'FILL' 1,
         'wght' 100;
@@ -17,6 +17,6 @@
   }
   @media (max-width: map-get($breakpoints, medium)) {
     flex-direction: column;
-    gap: 2rem;
+    gap: $size-8;
   }
 }

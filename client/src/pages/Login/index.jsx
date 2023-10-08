@@ -1,7 +1,7 @@
-import { postLogin } from '@/services/ApiInstance'
-import Cookies from 'js-cookie'
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import Cookies from 'js-cookie'
+import { postLogin } from '@/services/ApiInstance'
 
 export default function Login() {
   const navigate = useNavigate()
