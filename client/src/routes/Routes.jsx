@@ -5,6 +5,7 @@ import LoginLayout from '@/layouts/Login'
 import ProfileLayout from '@/layouts/Profile'
 import NotFound from '~/NotFound'
 import Loading from '~/Loading'
+import Payment from '@/pages/Payment'
 import {
   Home,
   Category,
@@ -91,6 +92,11 @@ const routesConfig = [
         element: <NotFound />,
       },
     ],
+  },
+  {
+    path: '/payment',
+    auth: true,
+    element: <Payment />,
   },
   {
     path: '*',

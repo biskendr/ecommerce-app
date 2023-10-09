@@ -1,0 +1,118 @@
+@use '../abstracts/' as *;
+
+.payment {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $size-8;
+  h1 {
+    font-weight: $font-weight-bold;
+    margin: $size-2 0;
+  }
+  button {
+    width: 100%;
+    margin: $size-4 0;
+  }
+  &-cart,
+  &-credit-card {
+    display: flex;
+    flex-direction: column;
+  }
+  &-cart {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 30%;
+    height: 70%;
+    &-wrapper {
+      // background-color: red;
+      width: 100%;
+      display: flex;
+      height: auto;
+      flex-direction: column;
+      // justify-content: center;
+      // align-self: center;
+      overflow: scroll;
+      &-item {
+        display: flex;
+        position: relative;
+        margin: $size-4;
+        h3 {
+          font-weight: $font-weight-semi-bold;
+        }
+        .left {
+          text-align: left;
+        }
+        .right {
+          position: absolute;
+          text-align: right;
+          right: 0;
+        }
+      }
+    }
+    footer {
+      margin-top: $size-13;
+      align-items: flex-end;
+      justify-content: start;
+      gap: $size-4;
+      display: flex;
+      p {
+        opacity: 0.5;
+        strong {
+          font-weight: $font-weight-semi-bold;
+        }
+        font-weight: $font-weight-light;
+      }
+    }
+  }
+  &-credit-card {
+    height: 100%;
+    &-wrapper {
+      width: 60%;
+    }
+    justify-content: center;
+    align-items: center;
+    box-shadow: -10px 10px 15px 0px rgba(0, 0, 0, 0.1);
+    form {
+      h2 {
+        margin: $size-4 0;
+      }
+      input {
+        border-radius: 10px;
+        width: 100%;
+      }
+      .form-card-information {
+        margin-top: $size-8;
+        input {
+          border-radius: 10px 10px 0 0;
+        }
+      }
+      .form-address-information {
+        input {
+          margin: $size-2 0;
+        }
+      }
+      .both {
+        display: flex;
+        label {
+          width: 50%;
+        }
+        :nth-child(1) {
+          input {
+            border-right: 0px;
+            border-top: 0px;
+            border-radius: 0 0 0 10px;
+          }
+        }
+        :nth-child(2) {
+          input {
+            border-top: 0px;
+            border-radius: 0 0 10px 0;
+          }
+        }
+      }
+    }
+  }
+}

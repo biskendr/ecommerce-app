@@ -30,7 +30,6 @@ export default function ProfileCart() {
           {cart.map((item) => {
             const { id, image, size, title, price, quantity, stock } = item
             const { url, name } = image.data[0].attributes.formats.medium
-
             return (
               <tbody key={id + size}>
                 <tr>
@@ -94,9 +93,11 @@ export default function ProfileCart() {
           </tfoot>
         </table>
         {cart.length > 0 && (
-          <button type="button" className="buy">
-            Buy
-          </button>
+          <Link to="/payment">
+            <button type="button" className="buy">
+              Buy
+            </button>
+          </Link>
         )}
       </div>
     </div>
