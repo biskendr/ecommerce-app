@@ -1,0 +1,55 @@
+@use '../../abstracts/' as *;
+.payment-failure,
+.payment-success {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  h3 {
+    text-align: center;
+    margin: $size-2;
+  }
+  a {
+    text-align: center;
+    margin: $size-2;
+    font-weight: $font-weight-semi-bold;
+    font-style: italic;
+  }
+  .progress {
+    width: 30%;
+    &-wrapper {
+      width: 100%;
+      height: $size-5;
+      background-color: $body-background-color;
+      border-radius: $size-2;
+      margin-top: $size-2;
+      &-bar {
+        width: 0;
+        height: 100%;
+        background: -webkit-gradient(
+          linear,
+          left top,
+          right top,
+          color-stop(0%, $progress-bar-primary),
+          color-stop(100%, $progress-bar-secondary)
+        );
+        border-radius: $size-2;
+        text-align: center;
+        line-height: $size-5;
+        color: $color-text-primary;
+        animation: progress 5s linear;
+      }
+      @keyframes progress {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

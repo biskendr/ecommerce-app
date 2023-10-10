@@ -38,4 +38,10 @@ export const postRegister = (form) => {
     ],
   })
 }
+export const getProductVariations = () =>
+  ApiInstance.get('/product-variations?populate=*')
+
+export const putProductVariations = (id, data) =>
+  ApiInstance.put(`/product-variations/${id}`, { data })
+
 export default ApiInstance

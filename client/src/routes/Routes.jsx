@@ -3,9 +3,9 @@ import { createBrowserRouter } from 'react-router-dom'
 import HomeLayout from '@/layouts/Home'
 import LoginLayout from '@/layouts/Login'
 import ProfileLayout from '@/layouts/Profile'
+import PaymentLayout from '@/layouts/Payment'
 import NotFound from '~/NotFound'
 import Loading from '~/Loading'
-import Payment from '@/pages/Payment'
 import {
   Home,
   Category,
@@ -13,6 +13,7 @@ import {
   Profile,
   Login,
   Register,
+  Payment,
   ProfileCart,
 } from './LazyComponent'
 import PrivateRoute from './PrivateRoute'
@@ -20,6 +21,19 @@ import PrivateRoute from './PrivateRoute'
 const wrapRoutes = (routes) =>
   routes.map((route) => {
     if (route.auth) {
+      return {
+        ...route,
+        element: (
+          <PrivateRoute>
+            <Suspense fallback={<Loading />}>{route.element}</Suspense>
+          </PrivateRoute>
+        ),
+        ...(route.children && {
+          children: wrapRoutes(route.children),
+        }),
+      }
+    }
+    if (route.private) {
       return {
         ...route,
         element: (
@@ -96,7 +110,14 @@ const routesConfig = [
   {
     path: '/payment',
     auth: true,
-    element: <Payment />,
+    private: true,
+    element: <PaymentLayout />,
+    children: [
+      {
+        index: true,
+        element: <Payment />,
+      },
+    ],
   },
   {
     path: '*',

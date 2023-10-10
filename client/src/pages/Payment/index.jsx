@@ -1,9 +1,13 @@
-import { getUser } from '@/services/ApiInstance'
+import {
+  getProductVariations,
+  getUser,
+  putProductVariations,
+} from '@/services/ApiInstance'
+import { dispatchClearCart } from '@/utils/cartUtils'
 import Cookies from 'js-cookie'
 import { useEffect, useState } from 'react'
-
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import Error from '~/Error'
 import Loading from '~/Loading'
@@ -19,6 +23,32 @@ export default function Payment() {
     0
   )
 
+  const handlePayment = async (e) => {
+    e.preventDefault()
+    try {
+      const { data } = await getProductVariations()
+      const updatePromises = cart.map(async (item) => {
+        const variation = data.data.find(
+          (dataItem) => dataItem.attributes.product.data.id === item.id
+        )
+        if (variation) {
+          const updatedStockQuantity = {
+            ...variation.attributes.stock_quantity,
+          }
+          updatedStockQuantity[item.size] -= item.quantity
+          await putProductVariations(variation.id, {
+            stock_quantity: updatedStockQuantity,
+          })
+        }
+      })
+      await Promise.all(updatePromises)
+      dispatchClearCart()
+      navigate('?success=true', { state: { paymentSuccess: true } })
+    } catch (err) {
+      navigate('?success=false', { state: { paymentSuccess: false } })
+    }
+  }
+
   useEffect(() => {
     const { jwt } = JSON.parse(Cookies.get('user'))
     getUser(jwt)
@@ -29,7 +59,6 @@ export default function Payment() {
 
   if (error) return <Error />
   if (loading) return <Loading />
-
   return (
     <div className="payment container">
       <div className="payment-cart">
@@ -43,13 +72,25 @@ export default function Payment() {
         <h3>Pay Lorem, ipsum.</h3>
         <h1>${cartTotal}</h1>
         <div className="payment-cart-wrapper">
-          {cart &&
+          {cart.length < 1 ? (
+            <>
+              <p>Your cart is look empty.</p>
+              <p>
+                Discover our products from{' '}
+                <Link to="/" className="link">
+                  shop
+                </Link>
+              </p>
+            </>
+          ) : (
             cart.map((item) => {
               const { id, size, title, price, quantity } = item
               return (
                 <div key={id + size} className="payment-cart-wrapper-item">
                   <div className="left">
-                    <h3>{title}</h3>
+                    <h3>
+                      {title} {size}
+                    </h3>
                     <p>Qty {quantity}</p>
                   </div>
                   <div className="right">
@@ -58,7 +99,8 @@ export default function Payment() {
                   </div>
                 </div>
               )
-            })}
+            })
+          )}
         </div>
         <footer>
           <p>
@@ -71,7 +113,7 @@ export default function Payment() {
       <div className="payment-credit-card">
         <div className="payment-credit-card-wrapper">
           <h1>Pay With Card</h1>
-          <form>
+          <form onSubmit={handlePayment}>
             <label htmlFor="email">
               <input
                 type="email"
@@ -140,7 +182,9 @@ export default function Payment() {
                 />
               </label>
             </div>
-            <button type="submit">Pay</button>
+            <button type="submit" disabled={cart.length < 1}>
+              Pay
+            </button>
           </form>
         </div>
       </div>

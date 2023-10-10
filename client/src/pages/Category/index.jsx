@@ -27,6 +27,7 @@ export default function Category() {
   }, [categoryID, resetFilters])
 
   if (error) return <Error />
+  if (!data && loading) return <Loading />
 
   return (
     <div className="category">

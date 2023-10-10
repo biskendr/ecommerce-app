@@ -8,6 +8,7 @@ export default function Profile() {
   const [user, setUser] = useState()
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(true)
+
   useEffect(() => {
     const { jwt } = JSON.parse(Cookies.get('user'))
     getUser(jwt)

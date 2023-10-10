@@ -3,30 +3,6 @@
 .profile-cart {
   max-width: 70%;
   margin: 0 auto;
-  .remove {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .buy {
-    width: 100%;
-  }
-  @media (max-width: map-get($breakpoints, large)) {
-    table {
-      tr {
-        display: flex;
-        flex-direction: column;
-        padding: 2rem;
-      }
-      td,
-      th {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-      }
-    }
-  }
   h1 {
     text-align: center;
     span {
@@ -55,12 +31,12 @@
       flex-direction: column;
       text-align: start;
       width: 100%;
-      padding: 2rem 0;
+      padding: $size-8 0;
       border-top: 1px solid black;
     }
     tfoot {
-      font-size: 1.5rem;
-      font-weight: 500;
+      font-size: $size-6;
+      font-weight: $font-weight-semi-bold;
       tr {
         display: grid;
         grid-template-columns: 4fr 1fr;
@@ -71,19 +47,54 @@
     }
     h1 {
       text-align: start;
-      padding: 2rem 0;
+      padding: $size-8 0;
     }
     .quantity {
       display: flex;
       align-items: center;
       button {
-        margin: 0.5rem;
-        padding: 0.25rem 0.5rem;
+        margin: $size-2;
+        padding: $size-1 $size-2;
       }
     }
     .bold {
-      font-size: 1.125rem;
-      font-weight: 500;
+      font-size: $font-size-500;
+      font-weight: $font-weight-semi-bold;
+    }
+  }
+  .remove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .clear {
+    display: flex;
+    justify-content: end;
+    margin: $size-4 0;
+  }
+  .buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    button {
+      width: 100%;
+    }
+  }
+  @media (max-width: map-get($breakpoints, large)) {
+    table {
+      tr {
+        display: flex;
+        flex-direction: column;
+        padding: $size-8;
+      }
+      td,
+      th {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
     }
   }
 }

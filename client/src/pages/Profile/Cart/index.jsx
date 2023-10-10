@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {
+  dispatchClearCart,
   dispatchDecreaseItemCart,
   dispatchIncreaseItemCart,
   dispatchRemoveItemCart,
@@ -10,6 +11,7 @@ import {
 export default function ProfileCart() {
   const { cart } = useSelector((state) => state.cart)
   const [total, setTotal] = useState(0)
+
   useEffect(() => {
     const cartTotal = cart.reduce(
       (acc, item) => acc + item.quantity * item.price,
@@ -93,11 +95,18 @@ export default function ProfileCart() {
           </tfoot>
         </table>
         {cart.length > 0 && (
-          <Link to="/payment">
-            <button type="button" className="buy">
-              Buy
-            </button>
-          </Link>
+          <>
+            <span
+              className="material-symbols-sharp clear"
+              role="presentation"
+              onClick={() => dispatchClearCart()}
+            >
+              delete
+            </span>
+            <Link to="/payment" className="buy">
+              <button type="button">Buy</button>
+            </Link>
+          </>
         )}
       </div>
     </div>

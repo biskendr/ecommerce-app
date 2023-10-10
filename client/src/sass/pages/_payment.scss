@@ -15,6 +15,10 @@
     width: 100%;
     margin: $size-4 0;
   }
+  .link {
+    font-style: italic;
+    font-weight: $font-weight-semi-bold;
+  }
   &-cart,
   &-credit-card {
     display: flex;
@@ -27,13 +31,10 @@
     width: 30%;
     height: 70%;
     &-wrapper {
-      // background-color: red;
       width: 100%;
       display: flex;
       height: auto;
       flex-direction: column;
-      // justify-content: center;
-      // align-self: center;
       overflow: scroll;
       &-item {
         display: flex;
