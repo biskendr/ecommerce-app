@@ -1,28 +1,42 @@
 @use '../../abstracts/' as *;
 .payment-failure,
 .payment-success {
-  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   h3 {
-    text-align: center;
     margin: $size-2;
   }
   a {
-    text-align: center;
     margin: $size-2;
     font-weight: $font-weight-semi-bold;
     font-style: italic;
+  }
+  &-content {
+    &-text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: $size-8 0;
+      span {
+        background-color: $body-background-primary-color;
+        border-radius: 50%;
+        color: $color-text-primary;
+        margin: 0 $size-8;
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 500;
+        font-size: $font-size-900;
+      }
+    }
   }
   .progress {
     width: 30%;
     &-wrapper {
       width: 100%;
-      height: $size-5;
+      height: $size-2;
       background-color: $body-background-color;
       border-radius: $size-2;
       margin-top: $size-2;
