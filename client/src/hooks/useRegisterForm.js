@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import validationRules from '@/json/validationRules.json'
+import ValidationsRegister from '@/json/Validation/Register.json'
 
 const initialState = {
   username: '',
@@ -23,7 +23,7 @@ function useRegisterForm() {
   const validateForm = () => {
     const error = {}
 
-    Object.keys(validationRules).forEach((field) => {
+    Object.keys(ValidationsRegister).forEach((field) => {
       const {
         required,
         pattern,
@@ -32,7 +32,7 @@ function useRegisterForm() {
         minLengthError,
         maxLengthError,
         patternError,
-      } = validationRules[field]
+      } = ValidationsRegister[field]
       const value = form[field]
 
       if (required && !value) {

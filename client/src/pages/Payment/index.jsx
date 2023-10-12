@@ -19,6 +19,7 @@ export default function Payment() {
   const [user, setUser] = useState()
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(true)
+  const { id } = JSON.parse(Cookies.get('user')).user
 
   const fetchUserData = () => {
     const { jwt } = JSON.parse(Cookies.get('user'))
@@ -77,7 +78,8 @@ export default function Payment() {
       <CreditCardForm
         handlePayment={handlePayment}
         user={user}
-        cartLength={cart.length}
+        cart={cart}
+        userID={id}
       />
     </div>
   )

@@ -44,4 +44,7 @@ export const getProductVariations = () =>
 export const putProductVariations = (id, data) =>
   ApiInstance.put(`/product-variations/${id}`, { data })
 
+export const postOrder = (user, orderDetail) =>
+  ApiInstance.post('/orders', { data: { user, orderDetail } })
+
 export default ApiInstance

@@ -85,35 +85,79 @@
         width: 100%;
       }
       .form-card-information {
+        grid-template-columns: 1fr fill-content(200px);
+        grid-template-rows: 1fr 1fr;
+        display: grid;
+        width: 100%;
         margin-top: $size-8;
-        input {
-          border-radius: 10px 10px 0 0;
+        label {
+          position: relative;
+          span {
+            font-weight: $font-weight-semi-bold;
+            top: 45px;
+            z-index: 999;
+            right: 0;
+            font-size: $font-size-200;
+            position: absolute;
+          }
+        }
+        label:nth-child(1) {
+          span {
+            top: -25px;
+            right: 0;
+            font-size: $font-size-200;
+            position: absolute;
+          }
+        }
+        label:nth-child(1) {
+          grid-area: 1 / 1 / 4 / 5;
+          input {
+            border-bottom: 0px;
+            border-radius: 10px 10px 0px 0px;
+          }
+        }
+        label:nth-child(2) {
+          grid-area: 2 / 1 / 2 / 3;
+          input {
+            border-right: 0px;
+            border-radius: 0px 0px 0px 10px;
+          }
+        }
+        label:nth-child(3) {
+          grid-area: 2 / 3 / 2 / 5;
+          input {
+            border-radius: 0px 0px 10px 0px;
+          }
         }
       }
       .form-address-information {
+        margin-top: $size-11;
         input {
           margin: $size-2 0;
         }
       }
-      .both {
-        display: flex;
-        label {
-          width: 50%;
-        }
-        :nth-child(1) {
-          input {
-            border-right: 0px;
-            border-top: 0px;
-            border-radius: 0 0 0 10px;
-          }
-        }
-        :nth-child(2) {
-          input {
-            border-top: 0px;
-            border-radius: 0 0 10px 0;
-          }
-        }
-      }
+    }
+  }
+  @media (max-width: map-get($breakpoints, xlarge)) {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    padding-top: 8rem;
+    &-cart,
+    &-credit-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      padding-top: 4rem;
+    }
+    &-credit-card {
+      box-shadow: inset 0px 100px 100px -100px rgba(0, 0, 0, 0.1);
+    }
+    &-cart {
+      width: 70%;
     }
   }
 }
