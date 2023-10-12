@@ -659,6 +659,11 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'plugin::users-permissions.role'
     >;
     address: Attribute.Component<'address.address', true> & Attribute.Required;
+    orders: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::order.order'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -722,6 +727,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     singularName: 'order';
     pluralName: 'orders';
     displayName: 'order';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -730,7 +736,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     orderDetail: Attribute.JSON & Attribute.Required;
     user: Attribute.Relation<
       'api::order.order',
-      'oneToOne',
+      'manyToOne',
       'plugin::users-permissions.user'
     >;
     createdAt: Attribute.DateTime;
