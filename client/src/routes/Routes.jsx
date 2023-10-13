@@ -14,7 +14,9 @@ import {
   Login,
   Register,
   Payment,
-  ProfileCart,
+  Cart,
+  Orders,
+  Address,
 } from './LazyComponent'
 import PrivateRoute from './PrivateRoute'
 
@@ -87,6 +89,10 @@ const routesConfig = [
         ],
       },
       {
+        path: '/cart',
+        element: <Cart />,
+      },
+      {
         path: '/profile',
         auth: true,
         element: <ProfileLayout />,
@@ -95,9 +101,14 @@ const routesConfig = [
             index: true,
             element: <Profile />,
           },
+
           {
-            path: 'cart',
-            element: <ProfileCart />,
+            path: 'orders',
+            element: <Orders />,
+          },
+          {
+            path: 'address',
+            element: <Address />,
           },
         ],
       },

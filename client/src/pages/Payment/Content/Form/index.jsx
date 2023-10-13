@@ -10,6 +10,9 @@ import handleInputChange from '@/lib/FormatInput'
 export default function CreditCardForm({ user, cart, handlePayment, userID }) {
   const [cardInfo, handleChange, validateForm, errors] = useCreditCardForm()
 
+  const { email, address: Address } = user
+  const { country, city, address } = Address[0]
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const isValid = validateForm()
@@ -29,8 +32,26 @@ export default function CreditCardForm({ user, cart, handlePayment, userID }) {
       })
       postOrder(userID, orderDetails)
       await handlePayment(e)
-    } else throw new Error('Error')
+    }
   }
+
+  const addressFields = [
+    {
+      name: 'country',
+      labelValue: 'Country',
+      value: country,
+    },
+    {
+      name: 'city',
+      labelValue: 'City',
+      value: city,
+    },
+    {
+      name: 'address',
+      labelValue: 'Address',
+      value: address,
+    },
+  ]
 
   const inputFields = [
     {
@@ -86,7 +107,7 @@ export default function CreditCardForm({ user, cart, handlePayment, userID }) {
             <input
               type="email"
               name="email"
-              value={`Email ${user.email}`}
+              value={`Email ${email}`}
               readOnly="readonly"
               disabled
             />
@@ -110,33 +131,20 @@ export default function CreditCardForm({ user, cart, handlePayment, userID }) {
           </div>
           <div className="form-address-information">
             <h2>Address Information</h2>
-            <label htmlFor="country">
-              <input
-                type="text"
-                name="country"
-                value={`Country: ${user.address[0].country}`}
-                readOnly
-                disabled
-              />
-            </label>
-            <label htmlFor="city">
-              <input
-                type="text"
-                name="city"
-                value={`City: ${user.address[0].city}`}
-                readOnly
-                disabled
-              />
-            </label>
-            <label htmlFor="address">
-              <input
-                type="text"
-                name="address"
-                value={`Address: ${user.address[0].address}`}
-                readOnly
-                disabled
-              />
-            </label>
+            {addressFields.map((field) => {
+              const { name, labelValue, value } = field
+              return (
+                <label key={name} htmlFor={name}>
+                  <input
+                    type="text"
+                    name={name}
+                    value={`${labelValue}: ${value}`}
+                    readOnly
+                    disabled
+                  />
+                </label>
+              )
+            })}
           </div>
           <button type="submit" disabled={cart.length < 1}>
             Pay

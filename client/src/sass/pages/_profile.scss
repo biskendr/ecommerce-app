@@ -3,9 +3,10 @@
 .profile {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: start;
+  height: 100%;
   border: 1px solid $border-primary-color;
-  border-radius: $size-10;
+  border-radius: 0 $size-10 $size-10 0;
   font-size: $font-size-700;
   margin: $size-11 auto;
   label {
@@ -29,9 +30,13 @@
     height: 30vh;
   }
   &-address,
-  &-info {
-    margin: $size-8 0;
-    padding: $size-8 0;
+  &-info,
+  &-orders,
+  &-home {
+    height: 100%;
+    margin: $size-8;
+    padding: $size-8;
+    border-left: 1px solid black;
   }
   @media (max-width: map-get($breakpoints, large)) {
     flex-direction: column;

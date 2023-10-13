@@ -67,7 +67,7 @@ export default function CartModal() {
               delete
             </span>
           </div>
-          <Link to="/profile/cart" className="button">
+          <Link to="/cart" className="button">
             <button type="button">Go to Cart</button>
           </Link>
         </>
