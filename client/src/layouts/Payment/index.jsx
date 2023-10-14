@@ -12,7 +12,7 @@ export default function PaymentLayout() {
   useEffect(() => {
     setTimeout(() => {
       if (paymentSuccess) {
-        navigate('/profile')
+        navigate('/profile/orders')
       }
     }, 5000)
   }, [paymentSuccess, navigate, search])

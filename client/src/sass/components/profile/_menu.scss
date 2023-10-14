@@ -1,21 +1,10 @@
+@use '../../abstracts/' as *;
 .profile-menu {
   display: flex;
   ul {
-    height: 100%;
-    // border-right: 1px solid black;
     li {
-      margin: 1rem 2rem;
-      padding: 1rem 2rem;
-      height: 100%;
-
-      a {
-        // color: white;
-        :hover {
-          background-color: black;
-          color: white;
-          transition: 1s all ease;
-        }
-      }
+      margin: $size-4 $size-8;
+      padding: $size-4 $size-8;
     }
   }
 }

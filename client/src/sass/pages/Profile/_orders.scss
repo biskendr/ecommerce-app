@@ -1,0 +1,46 @@
+@use '../../abstracts/' as *;
+
+.profile-orders {
+  display: flex;
+  flex-direction: column;
+  &-disclosure {
+    h1 {
+      padding: $size-4 0;
+    }
+    span {
+      cursor: pointer;
+      padding: 0 $size-4;
+      font-size: $size-8;
+    }
+    &-content {
+      display: none;
+    }
+    &.open {
+      .profile-orders-disclosure-content {
+        display: flex;
+        padding: $size-4 0;
+        transition: 0.5s all ease;
+        border-bottom: 1px solid $select-disable-color;
+        img {
+          width: 200px;
+        }
+        .profile-orders-disclosure-content-info {
+          padding: $size-8;
+          p {
+            font-size: $size-4;
+          }
+        }
+      }
+      span {
+        padding: 0 $size-4;
+        transform: rotate(90deg);
+        transition: 0.5s all ease;
+      }
+      .total {
+        display: flex;
+        justify-content: end;
+        font-weight: $font-weight-semi-bold;
+      }
+    }
+  }
+}

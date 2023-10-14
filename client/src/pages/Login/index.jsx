@@ -8,6 +8,7 @@ export default function Login() {
   const [togglePassword, setTogglePassword] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState(null)
 
   const setToken = (data) => {
     Cookies.set('user', JSON.stringify(data), { expires: 1 })
@@ -18,8 +19,8 @@ export default function Login() {
     e.preventDefault()
     postLogin(email, password)
       .then((res) => setToken(res.data))
-      .catch((error) => {
-        throw new Error('An error occurred:', error.response)
+      .catch((err) => {
+        setError(err.response.data.error.message)
       })
   }
   return (
@@ -62,6 +63,7 @@ export default function Login() {
               </span>
             )}
           </label>
+          {error !== null && <p>*{error}</p>}
           <button type="submit">Login</button>
         </form>
       </div>

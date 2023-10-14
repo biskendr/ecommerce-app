@@ -5,7 +5,6 @@
   justify-content: space-evenly;
   align-items: start;
   height: 100%;
-  border: 1px solid $border-primary-color;
   border-radius: 0 $size-10 $size-10 0;
   font-size: $font-size-700;
   margin: $size-11 auto;
@@ -33,10 +32,16 @@
   &-info,
   &-orders,
   &-home {
-    height: 100%;
-    margin: $size-8;
+    width: 100%;
     padding: $size-8;
     border-left: 1px solid black;
+    @media (max-width: map-get($breakpoints, large)) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top: 1px solid black;
+      border-left: 0px;
+    }
   }
   @media (max-width: map-get($breakpoints, large)) {
     flex-direction: column;

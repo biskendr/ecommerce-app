@@ -35,19 +35,6 @@ const wrapRoutes = (routes) =>
         }),
       }
     }
-    if (route.private) {
-      return {
-        ...route,
-        element: (
-          <PrivateRoute>
-            <Suspense fallback={<Loading />}>{route.element}</Suspense>
-          </PrivateRoute>
-        ),
-        ...(route.children && {
-          children: wrapRoutes(route.children),
-        }),
-      }
-    }
     return {
       ...route,
       element: <Suspense fallback={<Loading />}>{route.element}</Suspense>,
@@ -90,6 +77,7 @@ const routesConfig = [
       },
       {
         path: '/cart',
+        auth: true,
         element: <Cart />,
       },
       {
@@ -121,7 +109,6 @@ const routesConfig = [
   {
     path: '/payment',
     auth: true,
-    private: true,
     element: <PaymentLayout />,
     children: [
       {
