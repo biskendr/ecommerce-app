@@ -13,13 +13,16 @@ export default function ProfileOrders() {
 
   if (error) return <Error />
   if (loading) return <Loading />
+  const reversedData = data ? data.slice().reverse() : null
 
   return (
     <div className="profile-orders container">
       <h1>Orders</h1>
-      {data && data.length === 0 && <p>You don&apos;t have any orders yet.</p>}
-      {data &&
-        data.map((order) => {
+      {reversedData && reversedData.length === 0 && (
+        <p>You don&apos;t have any orders yet.</p>
+      )}
+      {reversedData &&
+        reversedData.map((order) => {
           const totalPrice = order.attributes.orderDetail.reduce(
             (acc, item) => acc + item.quantity * item.price,
             0
