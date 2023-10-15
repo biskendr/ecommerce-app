@@ -20,6 +20,9 @@
     accent-color: $color-text-default;
     color: $color-text-default;
   }
+  input[type='range'] {
+    padding: 0;
+  }
 
   &-items {
     @media (max-width: map-get($breakpoints, large)) {

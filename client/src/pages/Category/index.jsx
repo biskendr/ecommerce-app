@@ -6,11 +6,13 @@ import Filter from '~/Filter'
 import List from '~/List'
 import Error from '~/Error'
 import Loading from '~/Loading'
+import useDebounce from '@/hooks/useDebounce'
 
 export default function Category() {
   const { categoryID } = useParams()
   const [filters, setFilters, resetFilters] = useFilters()
-  const { category, sort, price } = filters
+  const debouncedFilters = useDebounce(filters)
+  const { category, sort, price } = debouncedFilters
 
   const { data, loading, error } = useFetch(
     `/categories/${categoryID}?fields=title&populate[sub_categories][fields]=title&populate[products][populate]=title,image${category
