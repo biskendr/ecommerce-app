@@ -1,6 +1,8 @@
-# Project Name
+# 🚀Project Name
 
 E-commerce Web Application
+
+### ⚠️ As the application is published on a free service, there may be delays or errors when loading the page for the first time.
 
 ## Table of Contents
 
@@ -11,16 +13,16 @@ E-commerce Web Application
 - [Features](#features)
 - [Photo Credits](#photo-credits)
 
-## Overview
+## 📌Overview
 
 This GitHub repository contains a project that includes two main components: an API and a Client. The API is built using Strapi CMS and PostgreSQL for database management, while the Client is developed using Vite and React. The project utilizes the Cloudinary plugin in Strapi and includes several data tables: Category, Sub-category, Products, Product Variations, Orders, and Users.
 
-## Folder Structure
+## 📂Folder Structure
 
 - `api/`: Contains the Strapi API code.
 - `client/`: Contains the frontend application.
 
-## Technologies Used
+## 🖥️Technologies Used
 
 ### API
 
@@ -37,7 +39,7 @@ This GitHub repository contains a project that includes two main components: an 
 - React Router
 - js-cookie
 
-## Development Tools and Coding Standards
+## 🛠️Development Tools and Coding Standards
 
 This project maintains code quality and consistency through the use of the following development tools and coding standards:
 
@@ -48,7 +50,7 @@ This project maintains code quality and consistency through the use of the follo
 
 These tools help ensure high-quality code and meaningful commit messages, facilitating a clear changelog.
 
-## Features
+## ✨Features
 
 - **User Registration**: Register for an account.
 - **User Login**: Log in to the site.
@@ -63,7 +65,7 @@ These tools help ensure high-quality code and meaningful commit messages, facili
 - **Order Placement**: Place orders for products.
 - **Order History**: View order history in the profile section.
 
-## Photo Credits:
+## 📸Photo Credits:
 
 You can access the images used in the project from the links below.
 
