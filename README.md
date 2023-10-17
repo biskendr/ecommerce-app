@@ -1,8 +1,11 @@
-# 🚀Project Name
+<div align="center">
+  <h1>🚀Project Name</h1>
+  <h1>E-commerce Web Application</h1>
+  <p>⚠️ As the application is published on a free service, there may be delays or errors when loading the page for the first time. ⚠️</p>
+  <h1><a href="https://ecommerce-app-biskendr.vercel.app/">Live App</a></h1>
 
-E-commerce Web Application
-
-### ⚠️ As the application is published on a free service, there may be delays or errors when loading the page for the first time.
+https://github.com/biskendr/ecommerce-app/assets/62937427/9aed6cdf-427b-43db-b2ff-d01f153f6cca
+</div>
 
 ## Table of Contents
 
