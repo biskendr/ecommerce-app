@@ -19,6 +19,10 @@
     justify-content: space-evenly;
     align-items: end;
     text-align: center;
+    img {
+      width: 24px;
+      height: 24px;
+    }
   }
   @media (max-width: map-get($breakpoints, large)) {
     &-content,

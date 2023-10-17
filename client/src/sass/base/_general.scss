@@ -68,6 +68,10 @@ h3 {
 h4 {
   font-size: $font-size-500;
 }
+.material-symbols-sharp {
+  font-family: 'Material Symbols Sharp', sans-serif;
+  font-size: $font-size-700;
+}
 button:is(:disabled) {
   border: none;
   background-color: $button-disable-body-color;
